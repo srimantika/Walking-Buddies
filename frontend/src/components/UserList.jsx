@@ -17,18 +17,19 @@ export default function UserList(){
  className='top-image'
 />
 <div className='filter-section'>
+  
+  <div className='filter-options'>
   <button className='btn'>Filter</button>
-  <div className='options-section'>
-    <button>
+    <button className='btn btn-filter'>
       Age
     </button>
-    <button>
+    <button className='btn btn-filter'>
      Gender
     </button>
-    <button>
+    <button className='btn btn-filter'>
       Time of Walk
     </button>
-    <button>
+    <button className='btn btn-filter'>
       Reason of Walk
     </button>
   </div>
