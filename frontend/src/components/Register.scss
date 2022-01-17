@@ -60,6 +60,8 @@
   }
 
   &__group3 {
+    display: flex;
+    justify-content: space between;
     margin-left: 1em;
     margin-right: 1em;
     margin-bottom: 1em;

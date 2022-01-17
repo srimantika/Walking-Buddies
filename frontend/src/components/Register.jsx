@@ -116,7 +116,12 @@ export default function Register(){
               
               {selectedImage && (
                <div>
-               <img alt="not found" width={"80%"} src={URL.createObjectURL(selectedImage)} />
+               <img alt="not found" resizeMode="contain"style={{
+                  flex: 1,
+                  alignSelf: 'stretch',
+                  width: undefined,
+                  height: undefined
+                }} src={URL.createObjectURL(selectedImage)} />
                <br />
                <button onClick={()=>setSelectedImage(null)}>Remove</button>
               </div>
