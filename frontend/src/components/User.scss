@@ -4,14 +4,16 @@ article {
   align-items:center;
   flex-wrap:wrap;
   text-align: center;
-  width: 90%;
-  border: 3px dashed lightgray;
+  width: 100%;
+  border: 3px solid rgb(99, 192, 192);
   border-radius: 5px;
   align-self: center;
   flex-grow: 1;
   height: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  background-image: url("https://images.unsplash.com/photo-1492931307820-62fa5a68e0df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+
 }
 
 .left-section {
@@ -30,7 +32,7 @@ align-items: center;
 .name-age {
   display:flex;
   justify-content: space-between; 
-  border: 3px solid lightgray;
+  border: 2px solid rgb(99, 192, 192);
   border-radius: 5px;
   height: 3rem;
 }
@@ -38,7 +40,7 @@ align-items: center;
 .photo {
   border: 1px solid #ddd;
   border-radius: 4px;
-  width: 130px;
+  width: 180px;
   height: 135px;
 }
 
@@ -81,7 +83,7 @@ img:hover {
 
 .chat-button {
   height: 60px;
-  width: 110px;
+  width: 50px;
 }
 
 .name-icon-container {
@@ -116,7 +118,7 @@ div {
 }
 
 .likes {
-  border: 3px solid lightgray;
+  border: 2px solid rgb(99, 192, 192);
   border-radius: 5px;
   width: 95%;
   margin: 5px;
@@ -128,7 +130,7 @@ div {
 
 .interests {
   display: flex;
-  border: 3px solid lightgray;
+  border: 2px solid rgb(99, 192, 192);
   border-radius: 5px;
   width: 95%;
   text-align: left;
@@ -146,7 +148,7 @@ div {
 
 
 .location {
-  border: 3px solid lightgray;
+  border: 2px solid rgb(99, 192, 192);
   border-radius: 5px;
   margin: 5px;
   text-align: left;
@@ -169,7 +171,7 @@ font-weight: bold;
   padding-right: 5px;
 }
 .preferred-time {
-  border: 3px solid lightgray;
+  border: 2px solid rgb(99, 192, 192);
   border-radius: 5px;
   width: 100%;
 }
@@ -184,3 +186,43 @@ font-weight: bold;
 #afternoon-tag {
   font-size: larger;
 }
+
+
+.chatbutton {
+  border-radius: 10px;
+  background-color: #6558f5;
+  background-image: linear-gradient(#6558f5,#27a39b);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  // width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+}
+
+.chatbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.chatbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.chatbutton:hover span {
+  padding-right: 25px;
+}
+
+.chatbutton:hover span:after {
+  opacity: 1;
+  right: 0; }
