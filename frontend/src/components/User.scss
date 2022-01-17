@@ -1,0 +1,186 @@
+article {
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+  flex-wrap:wrap;
+  text-align: center;
+  width: 90%;
+  border: 3px dashed lightgray;
+  border-radius: 5px;
+  align-self: center;
+  flex-grow: 1;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.left-section {
+display: flex;
+flex-direction:column;
+width:68%;  
+justify-content:space-between;
+align-items: center;
+}
+
+.icon-name {
+  display:flex;
+  justify-content: space-between; 
+}
+
+.name-age {
+  display:flex;
+  justify-content: space-between; 
+  border: 3px solid lightgray;
+  border-radius: 5px;
+  height: 3rem;
+}
+
+.photo {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 130px;
+  height: 135px;
+}
+
+.icon-name {
+  width: 35px;
+  height: 35px;
+}
+
+.name {
+  font-size: larger;
+}
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(16, 27, 31, 0.5);
+}
+
+.photo-info-container {
+  width: 100%;
+  display:inline-flex;
+  justify-content: space-evenly;
+}
+.photo-container {
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.right-of-photo {
+ width: 70%;
+}
+
+.time-of-day {
+  width: 100px;
+  height:100px;
+}
+
+.clock-image-container {
+  text-align: center;
+}
+
+.chat-button {
+  height: 60px;
+  width: 110px;
+}
+
+.name-icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 330px;
+}
+
+.name-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  width: 60%;
+}
+
+// span {
+//   font-weight: bold;
+// }
+
+div {
+  margin: 5px;
+  // padding: 3px;
+  // border: 3px solid gray;
+}
+
+.right-of-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.likes {
+  border: 3px solid lightgray;
+  border-radius: 5px;
+  width: 95%;
+  margin: 5px;
+  text-align: left;
+  align-self: center;
+  min-height: 3rem;
+  padding-left: 0.5rem;
+}
+
+.interests {
+  display: flex;
+  border: 3px solid lightgray;
+  border-radius: 5px;
+  width: 95%;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3rem;
+  padding-left: 0.5rem;
+}
+
+.activity-icons {
+  height: 50px;
+  width: 50px;
+}
+
+
+
+.location {
+  border: 3px solid lightgray;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: left;
+  align-self: center;
+  width: 98%;
+  min-height: 3rem;
+  padding-left: 0.5rem;
+}
+
+.right-section{
+  display: flex;
+  width: 28%;
+  // flex-direction:column;
+  flex-wrap: wrap;
+justify-content:space-between;
+align-items:space-between;
+font-weight: bold;
+  height: 100%;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+.preferred-time {
+  border: 3px solid lightgray;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.chat-button-section {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  align-self: center;
+  width: 100%;
+}
+
+#afternoon-tag {
+  font-size: larger;
+}
