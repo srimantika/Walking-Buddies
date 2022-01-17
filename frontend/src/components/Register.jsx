@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Checkbox from './Checkbox';
+
+
 import './Register.scss';
 
 export default function Register(){
@@ -7,6 +10,10 @@ export default function Register(){
   const genders = ["Male","Female"];
   const reasons = ["Leisure", "Socializing", "Weight Loss", "Staying Fit",  "Walking my pet", "Taking my baby out on a stroll"];
   const times = ["Morning","Afternoon","Evening"];
+  const interests= ["Games", "Music", "Movies", "Reading","Fitness and Wellness",
+                    "Arts and Music", "Home and Garden","Politics and Social issues",
+                    "Travel", "Shopping and Fashion", "Sports and Outdoors",
+                    "Technology", "Automobiles","Food and Drinks"];
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +24,17 @@ export default function Register(){
   const [areacode, setAreacode] = useState("");
   const [reason, setReason] = useState("");
   const [time, setTime] = useState("");
+  const interest=[];
+  const [selectedImage, setSelectedImage] = useState(null);
 
+  const [checkedItems, setCheckedItems] = useState({}); //plain object as state
+
+  const handleChange = (event) => {
+      // updating an object instead of a Map
+      
+      setCheckedItems({...checkedItems, [event.target.name] : event.target.checked });
+      console.log(checkedItems);
+    }
 
   const handleSubmit = (e) =>{
     console.log(name);
@@ -29,55 +46,95 @@ export default function Register(){
     console.log(areacode);
     console.log(reason);
     console.log(time);
+    console.log(selectedImage.name);
+
+    for (let key in checkedItems ){
+      if (checkedItems[key]===true){
+        interest.push(key)
+
+      }
+    }
+    console.log(interest);
+    
+
   }
+
   
   return (
-    <div>
+    <div className="container_register">
       Register
       <div className="form">
         <form autoComplete="off"  onSubmit={event => event.preventDefault()}>
-            <div className="form__group">
-              <label>Name: </label>
-              <input type="text" value={name} placeholder="Name" 
-                onChange={(event) => setName(event.target.value)}
+            
+            <div className="form__group1">
+            <div className="main_profile">
+              <div className="form__group">
+                <label>Name: </label>
+                <input type="text" value={name} placeholder="Name" 
+                  onChange={(event) => setName(event.target.value)}
+                />
+              </div>
+              <div className="form__group">
+                <label>Email:</label>
+                <input type="email" value={email} placeholder="Email"      
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </div>
+              <div className="form__group">
+                <label>Password:</label>
+                <input type="password" value={password} placeholder="Password "      
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </div>
+              <div className="form__group">
+                <label>Age:</label>
+                <select value={age} onChange={(event) => setAge(event.target.value)}>
+                  {ages.map(age => (<option key={age}>{age}</option>))}
+                </select>  
+              </div>
+              <div className="form__group">
+                <label>Gender:</label>
+                <select value={gender} onChange={(event) => setGender(event.target.value)}>
+                  {genders.map(gender => (<option key={gender}>{gender}</option>))}
+                </select>  
+              </div>
+              <div className="form__group">
+                <label>Location:</label>
+                <input type="text" value={location} placeholder="Address"      
+                  onChange={(event) => setLocation(event.target.value)}
+                />
+              </div>
+              <div className="form__group">
+                <label>Area:</label>
+                <input type="text" value={areacode} placeholder="Area Code"      
+                  onChange={(event) => setAreacode(event.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="picture">
+              
+              {selectedImage && (
+               <div>
+               <img alt="not found" width={"80%"} src={URL.createObjectURL(selectedImage)} />
+               <br />
+               <button onClick={()=>setSelectedImage(null)}>Remove</button>
+              </div>
+               )}
+              <br />
+     
+               <br /> 
+              <input
+               type="file"
+               id = "file"
+               name="myImage"
+                onChange={(event) => {
+                setSelectedImage(event.target.files[0]);
+                }}
               />
             </div>
-            <div className="form__group">
-              <label>Email:</label>
-              <input type="email" value={email} placeholder="Email"      
-                onChange={(event) => setEmail(event.target.value)}
-              />
             </div>
-            <div className="form__group">
-              <label>Password:</label>
-              <input type="password" value={password} placeholder="Password "      
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </div>
-            <div className="form__group">
-              <label>Age:</label>
-              <select value={age} onChange={(event) => setAge(event.target.value)}>
-                {ages.map(age => (<option key={age}>{age}</option>))}
-              </select>  
-            </div>
-            <div className="form__group">
-              <label>Gender:</label>
-              <select value={gender} onChange={(event) => setGender(event.target.value)}>
-                {genders.map(gender => (<option key={gender}>{gender}</option>))}
-              </select>  
-            </div>
-            <div className="form__group">
-              <label>Location:</label>
-              <input type="text" value={location} placeholder="Address"      
-                onChange={(event) => setLocation(event.target.value)}
-              />
-            </div>
-            <div className="form__group">
-              <label>Area:</label>
-              <input type="text" value={areacode} placeholder="Area Code"      
-                onChange={(event) => setAreacode(event.target.value)}
-              />
-            </div>
+
             <label className="form__group">Preferences</label>
             < div className="form__group2">
               <div className="form__group">
@@ -93,13 +150,24 @@ export default function Register(){
                 </select>  
               </div>
             </div>
-            
+
+          <div className="form__group3">
+          <label>Interest </label> <br/>
+          {
+              interests.map(item => (
+                  <label key={item}>
+                      <Checkbox name={item} checked={checkedItems[item]} onChange={handleChange} />
+                      {item}
+                  </label>
+              ))
+          }
+          </div>
+          
         </form>
-        <button type="button" className="btn" onClick={handleSubmit}>
-            Register
-        </button>
-      </div> 
-      
+      </div>
+      <button type="button" className="btn" onClick={handleSubmit}>
+        Register
+      </button>
     </div>
   )
 }

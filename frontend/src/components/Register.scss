@@ -1,5 +1,11 @@
 @import '../styles/variables.scss';
 
+.container_register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
 .form {
   margin-top: 2em;
@@ -23,10 +29,18 @@
     }
     input {
       align-items: left;
+      width: 20em;
+      
     }
     select {
-      width: 10em;
+      width: 20em;
     }
+  }
+
+  &__group1 {
+    display: flex;
+    flex-direction: row;
+    
   }
 
   &__group2 {
@@ -40,15 +54,65 @@
     }
 
     select {
-      width: 10em;
+      width: 20em;
       margin-left: 0.5em;
     }
   }
+
+  &__group3 {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     
+      width: 70%;
+
+    label, Checkbox {
+      margin-left: 1em;
+      margin-right: 1em;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    
+    
+    }
+  }
+
+     
 }
 
 .btn {
   background-color: $green;
   width: 8em;
   align-items:center;
+  margin-right: 10em;
+  
+}
+
+
+.main_profile {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3em;
+  
+}
+
+.picture {
+  margin-left: 3em;
+  background-color: $navWhite;
+  align-items: right;
+  width: 30%;
+  }
+
+#file {
+  
+  width: 100%;
+  padding: 120px 0 0 0;
+  height: 100px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+  border-radius: 20px;
+  background-size: 60px 60px;
 }
