@@ -4,7 +4,7 @@ import './Home.scss'
 export default function Home(){
   
   return (
-    <div>
+    <div class="Main">
       <nav>
       <div class="content-left">
         <img src="/images/Logo.png" class="logo" />
@@ -17,12 +17,12 @@ export default function Home(){
       <div class="content-right">
           <a href="/login">
             <button type="button" class="btn btn-dark" data-mdb-ripple-color="dark">
-              Login
+              <span>Login</span>
             </button>
           </a>
           <a href="/register">
             <button type="button" class="btn btn-dark" data-mdb-ripple-color="dark">
-              Register
+              <span>Register</span>
             </button>
           </a>
       </div>
@@ -41,11 +41,11 @@ export default function Home(){
         <div class="about-us-text">
           <h4>Walking Buddies !</h4>
           <h5>
-            Walking Buddies helps you find a walking Buddy in your own community!
+            Walking Buddies helps you find a Walking Buddy in your own community!
           </h5>
           <p>
-           The idea of Walking Buddies was conceived with a simple thought process, connect people with
-          simple preferences and get them walking together. This idea seems more pertinent in the current times 
+           The idea of Walking Buddies was conceived with a simple thought process of connecting people with
+          similar preferences and get them walking together. This idea seems more pertinent in the current times 
           where Covid-19 has exposed us to unprecedented levels of social isolation and confined us to our homes. 
           Walking is the best way to stay both physically and socially active and Walking Buddies does just that for you ! 
           <h5>So hop on to the App and connect with your Walking Buddy!</h5>
