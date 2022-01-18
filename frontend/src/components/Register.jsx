@@ -22,7 +22,8 @@ export default function Register(){
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  const [location, setLocation] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
   const [areacode, setAreacode] = useState("");
   const [reason, setReason] = useState("");
   const [time, setTime] = useState("");
@@ -52,7 +53,8 @@ export default function Register(){
     console.log(password);
     console.log(age);
     console.log(gender);
-    console.log(location);
+    console.log(street);
+    console.log(city);
     console.log(areacode);
     console.log(reason);
     console.log(time);
@@ -73,50 +75,53 @@ export default function Register(){
   
   return (
     <div className="container_register">
-         
+     
         <form autoComplete="off"  onSubmit={event => event.preventDefault()}>
             
             <div className="group1">
             <div className="main_profile">
               <div className="group">
                 <label>Name: </label>
-                <input type="text" value={name} placeholder="Name" 
+                <input type="text" required value={name} placeholder="Name" required
                   onChange={(event) => setName(event.target.value)}
                 />
               </div>
               <div className="group">
                 <label>Email:</label>
-                <input type="email" value={email} placeholder="Email"      
+                <input type="email" required value={email} placeholder="Email"  required    
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
               <div className="group">
                 <label>Password:</label>
-                <input type="password" value={password} placeholder="Password "      
+                <input type="password" required value={password} placeholder="Password "  required    
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </div>
               <div className="group">
                 <label>Age:</label>
-                <select value={age} onChange={(event) => setAge(event.target.value)}>
+                <select value={age} required onChange={(event) => setAge(event.target.value)}>
                   {ages.map(age => (<option key={age}>{age}</option>))}
                 </select>  
               </div>
               <div className="group">
                 <label>Gender:</label>
-                <select value={gender} onChange={(event) => setGender(event.target.value)}>
+                <select value={gender} required onChange={(event) => setGender(event.target.value)}>
                   {genders.map(gender => (<option key={gender}>{gender}</option>))}
                 </select>  
               </div>
               <div className="group">
-                <label>Location:</label>
-                <input type="text" value={location} placeholder="Address"      
-                  onChange={(event) => setLocation(event.target.value)}
+                <label>Adress:</label>
+                <input id="street" type="text" required value={street} placeholder="Street Name"      
+                  onChange={(event) => setStreet(event.target.value)}
+                />
+                <input id="city" type="text" required value={city} placeholder="City"      
+                  onChange={(event) => setCity(event.target.value)}
                 />
               </div>
               <div className="group">
-                <label>Area:</label>
-                <input type="text" value={areacode} placeholder="Area Code"      
+                <label>Postal Code:</label>
+                <input type="text" required value={areacode} placeholder="Postal Code"      
                   onChange={(event) => setAreacode(event.target.value)}
                 />
               </div>
@@ -130,17 +135,17 @@ export default function Register(){
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
 					</div>
-					<input type="file" accept="image/*" name="image-upload" id="image-input" onChange={imageHandler} />
+					<input type="file" required accept="image/*" name="image-upload" id="image-input" onChange={imageHandler} />
 					<div className="image-label">
-          <label className="image-upload" htmlFor="image-input">
+          <label className="btn" htmlFor="image-input">
 						{/* <i className="material-icons">add_photo_alternate</i> */}
-						Choose your Photo
+						<span>Upload a Picture</span>
 					</label>
           </div>
 			  </div>
       </div>
 
-      <label className="preference"> Preferences</label>
+      <label className="preference"> <b>Preferences</b></label>
             < div className="group2">
         
               <div className="space2">
@@ -157,7 +162,7 @@ export default function Register(){
               </div>
             </div>
 
-         <label className="preference">Interest </label>
+         <label className="preference"><b>Interest</b> </label>
           <div className="group3">
                {
               interests.map(item => (
@@ -174,7 +179,7 @@ export default function Register(){
         </form>
       
       <button type="button" className="btn" onClick={handleSubmit}>
-        Register
+         <span>Register</span>
       </button>
     </div>
   )
