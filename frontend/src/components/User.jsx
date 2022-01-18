@@ -1,4 +1,6 @@
 import React, {Fragment} from "react";
+import { Route, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+
 
 import "./User.scss";
 import singleMale from '../images/malesingle.png'
@@ -11,7 +13,13 @@ import musicicon from '../images/music.png'
 
 
 
-export default function User() {
+export default function User(props) {
+
+  const clickHandler = () => {
+    <Route exact path="/" render={() => (
+              <Redirect to="/Chat"/>
+    )}/>
+  }
   return (
 <Fragment>
 <article>
@@ -19,7 +27,7 @@ export default function User() {
         <div className="photo-info-container">
           <div className='photo-container'>
             <img
-              src="https://images.unsplash.com/photo-1642265410877-34f6fc0863c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=704&q=80"
+              src={props.picture}
               className="photo"
             />
           </div>
@@ -28,55 +36,35 @@ export default function User() {
               <div className="name-icon-container">
                 <div className="name-icon">
                   <img
-                    src={singleMale}
+                    src={props.gender}
                     className="icon-name"
                   />
-                   <span className="name"><strong>Bob Boblin  </strong></span>
+                   <span className="name"><strong>{props.name}  </strong></span>
                 </div>
 
                
 
-                <p><strong>Age:</strong> 35 years</p>
+                <p><strong>Age:</strong> {props.age}</p>
               </div>
 
               
             </div>
 
             <div className='location'>
-              <p><strong>Location:</strong> Britannia Road, Mississauga </p>
+              <p><strong>Location:</strong> {props.street_name},{props.city}  </p>
             </div>
           </div>
         </div>
 
         <div className='likes'>
-          <p><strong>Reason for Walk:</strong> Leisure, Socialing</p>
+          <p><strong>Reason for Walk:</strong> {props.walk_reason}</p>
       
         </div>
 
         <div className='interests'>
           <p><strong>Interests:</strong></p>
-          <img
-            src={readingicon}
-            className="activity-icons"
-          />
-                    <img
-            src={moviesicon}
-            className="activity-icons"
-          />
-                    <img
-            src={fitnessicon}
-            className="activity-icons"
-          />
-                    <img
-            src={gamingicon}
-            className="activity-icons"
-          />
-                    <img
-            src={musicicon}
-            className="activity-icons"
-          />
-
-
+          {props.interests}
+          
         </div>
       </div>
 
@@ -94,19 +82,21 @@ export default function User() {
           </div>
 
           <div>
-            <p id='afternoon-tag'>Afternoon</p>
+            <p id='afternoon-tag'>{props.walk_time}</p>
           </div>
         </div>
         <div className="chat-button-section">
      
-          <button className="chatbutton"><span>Message Me!</span>
+          <button 
+          
+          className="chatbutton"><span>Message Me!</span>
           </button>
         </div>
       </div>
     </article>
 
 
-    <article>
+    {/* <article>
       <div className="left-section">
         <div className="photo-info-container">
           <div className='photo-container'>
@@ -128,7 +118,7 @@ export default function User() {
 
                
 
-                <p><strong>Age:</strong> 35 years</p>
+                <div className="age-container"><strong>Age:</strong> 35 years</div>
               </div>
 
               
@@ -191,11 +181,14 @@ export default function User() {
         </div>
         <div className="chat-button-section">
      
-          <button className="chatbutton"><span>Message Me!</span>
+          <button
+          onClick={clickHandler} 
+          className="chatbutton"><span>Message Me!</span>
           </button>
         </div>
       </div>
-    </article>
+    </article> */}
+
 
 </Fragment>
    

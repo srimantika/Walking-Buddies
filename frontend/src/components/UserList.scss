@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Source Sans Pro", sans-serif;
+  // background-color: rgba(137, 178, 230, 0.424);
 }
 
 .top-image {
@@ -22,21 +23,28 @@ body {
 .filter-section {
   display: flex;
   align-self: center;
-  border: 2px solid lightgray;
-  background-color:#1aae9f;
+  border: 2px solid rgb(151, 148, 148);
+  background-color:#cdcfcf;
   background-image:url("https://images.unsplash.com/photo-1596468138838-0f34c2d0773b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
   ;
   height:4rem;
+  width: 99%;
+  margin: 10px auto;
+  border-radius: 10px;
+
 }
 .filter-options {
   display: flex;
 
   flex-grow:1;
   justify-content: space-evenly;
+  
 }
 
 .filter-button {
   width: 10rem;
+  font-size: larger;
+  
 }
 .btn-filter {
   background-color: white;
@@ -47,5 +55,6 @@ body {
 
 .dropdown-toggle {
   background-color: white;
-  color:#6558f5
+  color:#6558f5;
+  font-size: larger;
 }
