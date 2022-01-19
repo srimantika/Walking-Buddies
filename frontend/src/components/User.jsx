@@ -8,7 +8,8 @@ export default function User(props) {
     <Route exact path="/" render={() => <Redirect to="/Chat" />} />;
   };
   
-  const genderImg = (props.gender === 'male') ? '/images/malesingle.png':'/images/femalesingle.png'
+  const genderImg = 
+  (props.gender === 'Male' || props.gender === 'male') ? '/images/malesingle.png' : '/images/femalesingle.png';
 
   return (
     <Fragment>

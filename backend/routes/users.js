@@ -52,6 +52,49 @@ module.exports = ({ getUsers, addUser, getUserByEmail}) => {
     
 
     })
-    //*************************************************************************/
+
+
+//*************************************************************************/
+
+    router.post('/login', (req, res) => {
+
+        console.log("Email and password",req.body);
+
+        let {email, password}= req.body;
+
+
+        getUserByEmail(email)
+            .then(user => {
+                if (!user) {
+                    res.json({
+                        msg: 'Sorry, a user account with this email does not exist'
+                    });
+                } else {
+                    if(user.password === password){
+                        console.log(user.postal_code);
+                        res.json({
+                            msg: 'Password Match!',
+                            user_email: user.email,
+                            postal_code: user.postal_code
+                        });
+                    }
+                    else {
+                        res.json({
+                            msg: 'Incorrect Password! Try Again!'
+                        });
+                    }
+
+                }
+
+            })
+            .then(newUser => res.json(newUser))
+            .catch(err => res.json({
+                error: err.message
+            }));
+
+
+    })
+
+
     return router;
 };

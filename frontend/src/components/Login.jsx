@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 import '../styles/variables.scss'
 import './Login.scss'
+import useApplicationData from '../hooks/useApplicationData';
+import axios from 'axios';
+
+
 export default function Login(){
-  
+
+  const { state, dispatch } = useApplicationData();
+ 
   const [email, setEmail] =     useState("");
   const [password, setPassword] =useState("");
 
   const verify = (e) =>{
-   console.log(email);
-   console.log(password);
-   
-  }
+    console.log(email);
+    console.log(password);
+ 
+    const user = {email, password};
+ 
+    axios.post('/api/users/login', user )
+    .then(res => {
+      console.log(res.data);
+      state.currentUserEmail = res.data.user_email;
+      state.currentUserPostalcode = res.data.postal_code;
+      console.log("STATE",state);
+    }
+    );
+   }
+ 
 
   return (
     

@@ -1,12 +1,12 @@
-$border-spec : 2px dashed #116e8a;
+$border-spec: 2px dashed #116e8a;
 $bg-color: #bb8565;
 $bg-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
 
 article {
-  display:flex;
-  justify-content:space-evenly;
-  align-items:center;
-  flex-wrap:wrap;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   text-align: center;
   width: 100%;
   // border: $border-spec;
@@ -14,32 +14,30 @@ article {
   align-self: center;
   flex-grow: 1;
   height: auto;
-   
-margin: 10px auto;
+
+  margin: 10px auto;
   box-sizing: border-box;
   background-color: $bg-color;
   background-image: $bg-image;
-
 }
 
 .left-section {
-display: flex;
-flex-direction:column;
-width:70%;  
-justify-content:space-between;
-align-items: center;
-margin: 0 auto;
-
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .icon-name {
-  display:flex;
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
 }
 
 .name-age {
-  display:flex;
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
   border: $border-spec;
   border-radius: 5px;
   height: 3rem;
@@ -48,15 +46,13 @@ margin: 0 auto;
 .photo {
   border: 1px solid #ddd;
   border-radius: 4px;
-  // width: 180px;
-  // height: 135px;
   object-fit: contain;
   overflow: hidden;
 }
 
 .icon-name {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 
 .name {
@@ -69,7 +65,7 @@ img:hover {
 
 .photo-info-container {
   width: 100%;
-  display:inline-flex;
+  display: inline-flex;
   justify-content: space-evenly;
   margin: 0 auto;
 }
@@ -79,16 +75,16 @@ img:hover {
   justify-content: center;
   // object-fit: contain;
   object-fit: cover;
-      overflow: hidden;
+  overflow: hidden;
 }
 
 .right-of-photo {
- width: 70%;
+  width: 70%;
 }
 
 .time-of-day {
   width: 100px;
-  height:100px;
+  height: 100px;
 }
 
 .clock-image-container {
@@ -106,8 +102,6 @@ img:hover {
   align-content: center;
   justify-content: space-between;
   width: 100%;
-
-  
 }
 
 .name-icon {
@@ -115,12 +109,8 @@ img:hover {
   align-items: center;
   justify-content: left;
   width: 60%;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
-
-// span {
-//   font-weight: bold;
-// }
 
 div {
   margin: 5px;
@@ -138,7 +128,7 @@ div {
   border: $border-spec;
   border-radius: 5px;
   width: 100%;
-  margin: 5px;
+  // margin: 5px;
   text-align: left;
   align-self: center;
   min-height: 3rem;
@@ -159,17 +149,11 @@ div {
   font-size: larger;
 }
 
-.activity-icons {
-  height: 50px;
-  width: 50px;
-}
-
-
 
 .location {
   border: $border-spec;
   border-radius: 5px;
-  margin: 5px;
+  // margin: 5px;
   text-align: left;
   align-self: center;
   width: 100%;
@@ -178,14 +162,14 @@ div {
   font-size: larger;
 }
 
-.right-section{
+.right-section {
   display: flex;
   width: 28%;
   // flex-direction:column;
   flex-wrap: wrap;
-justify-content:space-between;
-align-items:space-between;
-font-weight: bold;
+  justify-content: space-between;
+  align-items: space-between;
+  font-weight: bold;
   height: 100%;
   padding-top: 5px;
   padding-right: 5px;
@@ -208,20 +192,18 @@ font-weight: bold;
   font-size: larger;
 }
 
-
 .chatbutton {
   border-radius: 10px;
   background-color: #6558f5;
-  background-image: linear-gradient(#6558f5,#27a39b);
+  background-image: linear-gradient(#6558f5, #27a39b);
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   font-size: 18px;
   padding: 10px;
   // width: 180px;
   transition: all 0.5s;
   cursor: pointer;
-  
 }
 
 .chatbutton span {
@@ -232,7 +214,7 @@ font-weight: bold;
 }
 
 .chatbutton span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -246,10 +228,10 @@ font-weight: bold;
 
 .chatbutton:hover span:after {
   opacity: 1;
-  right: 0; }
+  right: 0;
+}
 
-  .age-container {
-    white-space: nowrap;
-    font-size: larger;
-  }
-
+.age-container {
+  white-space: nowrap;
+  font-size: larger;
+}

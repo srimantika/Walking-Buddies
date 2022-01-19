@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import useApplicationData from "../hooks/useApplicationData.js";
 
 import "../styles/variables.scss";
 import "./UserList.scss";
@@ -7,6 +8,8 @@ import User from "./User";
 import "./User.scss";
 
 export default function UserList(props) {
+  const { state, dispatch } = useApplicationData();
+  console.log("users from state", state.users);
 
   if(!props.users) {
     return "loading"

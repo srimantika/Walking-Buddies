@@ -11,6 +11,8 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
       users: [],
       loading: true,
+      currentUserEmail: "",
+      currentUserPostalcode: ""
   });
   useEffect(() => {
       axios({
