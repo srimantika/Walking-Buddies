@@ -5,13 +5,45 @@
 }
 
 
-.btn {
-  background-color: #6558f5;
-  color: white;
+.fbtn {
+  border-radius: 10px;
+  background-color: #514947;
+  // background-image: linear-gradient(#bb7f0e,#49515d);
+  border: none;
+  color: #1bae9f;
+  text-align: center;
+  font-size: 18px;
+  // padding: 5px;
+  width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
   font-weight: bold;
   margin-top: 10px;
-
 }
+
+.fbtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+.fbtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.fbtn:hover span {
+  padding-right: 25px;
+}
+
+.fbtn:hover span:after {
+  opacity: 1;
+  right: 0; }
 
 .filter-section {
   display: flex;
@@ -51,10 +83,13 @@
 
 }
 
-.dropdown-toggle {
-
+.dd-toggle {
   background-color: white;
   color:#6558f5;
   font-size: larger;
+}
 
+button {
+  padding: 12px;
+  
 }

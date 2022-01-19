@@ -9,7 +9,7 @@ import "./User.scss";
 
 export default function UserList(props) {
   const { state, dispatch } = useApplicationData();
-  console.log("users from state", state.users);
+  // console.log("users from state", state.users);
 
   if(!props.users) {
     return "loading"
@@ -17,7 +17,7 @@ export default function UserList(props) {
 
   const listOfUsers = props.users.map((user) => {
     if(user){
-      console.log("individual user", user);
+      // console.log("individual user", user);
       return <User
        key = {user.id}
        name = {user.name}
@@ -41,35 +41,45 @@ export default function UserList(props) {
         <div className="filter-options">
           
 
-          <button
-            className="btn btn-primary dropdown-toggle"
-            data-toggle="dropdown"
-          >
-            Age
-          </button>
+          <select
+            className="fbtn btn-primary dd-toggle"
+           >
+            <option disabled selected>Age</option>
+            <option value="18-25">18-25</option>
+            <option value="25-35">25-35</option>
+            <option value="35-45">35-45</option>
+            <option value="45-55">45-55</option>
+            <option value="55-65">55-65</option>
+            <option value="65+">65+</option>
+          </select>
 
-          <button
-            className="btn btn-primary dropdown-toggle"
-            data-toggle="dropdown"
-          >
-            Gender
-          </button>
+          <select
+            className="fbtn btn-primary dd-toggle">
+            <option disabled selected>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
 
-          <button
-            className="btn btn-primary dropdown-toggle"
-            data-toggle="dropdown"
-          >
-            Time of Walk
-          </button>
+          <select
+            className="fbtn btn-primary dd-toggle">
+            <option disabled selected>Time of Walk</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+          </select>
 
-          <button
-            className="btn btn-primary dropdown-toggle"
-            data-toggle="dropdown"
-          >
-            Reason of Walk
-          </button>
+          <select
+            className="fbtn btn-primary dd-toggle">
+            <option disabled selected>Reason of Walk</option>
+            <option value="Leisure">Leisure</option>
+            <option value="Socializing">Socializing</option>
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Staying Fit">Staying Fit</option>
+            <option value="Walking my pet">Walking my pet</option>
+            <option value="Taking my baby out on a stroll">Taking my baby out on a stroll</option>
+          </select>
 
-          <button className="btn filter-button">Filter</button>
+          <button className="fbtn">Filter</button>
         </div>
       </div>
 
