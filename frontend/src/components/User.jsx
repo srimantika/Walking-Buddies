@@ -1,27 +1,20 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import { Route, Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
-
 import "./User.scss";
-import singleMale from '../images/malesingle.png'
-import clockSymb from '../images/clock.png'
-import readingicon from '../images/reading.png'
-import moviesicon from '../images/movie.png'
-import fitnessicon from '../images/fitness.png'
-import gamingicon from '../images/gaming.png'
-import musicicon from '../images/music.png'
-
-
 
 export default function User(props) {
-
   const clickHandler = () => {
-    <Route exact path="/" render={() => (
-              <Redirect to="/Chat"/>
-    )}/>
-  }
+    <Route exact path="/" render={() => <Redirect to="/Chat" />} />;
+  };
+  
+  const genderImg = (props.gender === 'male') ? '/images/malesingle.png':'/images/femalesingle.png'
+
   return (
-<Fragment>
+    <Fragment>
+
+  
+
 <article>
       <div className="left-section">
         <div className="photo-info-container">
@@ -36,7 +29,7 @@ export default function User(props) {
               <div className="name-icon-container">
                 <div className="name-icon">
                   <img
-                    src={props.gender}
+                    src={genderImg}
                     className="icon-name"
                   />
                    <span className="name"><strong>{props.name}  </strong></span>
@@ -44,28 +37,27 @@ export default function User(props) {
 
                
 
-                <p><strong>Age:</strong> {props.age}</p>
+                <div className="age-container"><strong>Age:</strong> {props.age} years</div>
               </div>
 
               
             </div>
 
             <div className='location'>
-              <p><strong>Location:</strong> {props.street_name},{props.city}  </p>
+              <p><strong>Location:</strong> {props.street_name}, {props.city} </p>
             </div>
-          </div>
-        </div>
-
-        <div className='likes'>
+            <div className='likes'>
           <p><strong>Reason for Walk:</strong> {props.walk_reason}</p>
       
         </div>
 
         <div className='interests'>
-          <p><strong>Interests:</strong></p>
-          {props.interests}
-          
+          <p><strong>Interests:</strong> {props.interests}</p>
         </div>
+          </div>
+        </div>
+
+        
       </div>
 
       <div className="right-section">
@@ -75,7 +67,7 @@ export default function User(props) {
           </div>
           <div className="clock-image-container">
             <img
-              src={clockSymb}
+              src="/images/clock.png"
               alt='clock-image'
               className="time-of-day"
             />
@@ -87,21 +79,20 @@ export default function User(props) {
         </div>
         <div className="chat-button-section">
      
-          <button 
-          
+          <button
+          onClick={clickHandler} 
           className="chatbutton"><span>Message Me!</span>
           </button>
         </div>
       </div>
     </article>
 
-
-    {/* <article>
+      {/* <article>
       <div className="left-section">
         <div className="photo-info-container">
           <div className='photo-container'>
             <img
-              src="https://images.unsplash.com/photo-1642265410877-34f6fc0863c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=704&q=80"
+              src="/images/samplepic.jpg"
               className="photo"
             />
           </div>
@@ -127,10 +118,7 @@ export default function User(props) {
             <div className='location'>
               <p><strong>Location:</strong> Britannia Road, Mississauga </p>
             </div>
-          </div>
-        </div>
-
-        <div className='likes'>
+            <div className='likes'>
           <p><strong>Reason for Walk:</strong> Leisure, Socialing</p>
       
         </div>
@@ -160,6 +148,10 @@ export default function User(props) {
 
 
         </div>
+          </div>
+        </div>
+
+        
       </div>
 
       <div className="right-section">
@@ -188,9 +180,6 @@ export default function User(props) {
         </div>
       </div>
     </article> */}
-
-
-</Fragment>
-   
+    </Fragment>
   );
 }

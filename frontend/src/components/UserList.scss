@@ -10,6 +10,8 @@ body {
 
 .top-image {
   width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 
@@ -18,32 +20,40 @@ body {
   color: white;
   font-weight: bold;
   margin-top: 10px;
+
 }
 
 .filter-section {
   display: flex;
-  align-self: center;
-  border: 2px solid rgb(151, 148, 148);
-  background-color:#cdcfcf;
-  background-image:url("https://images.unsplash.com/photo-1596468138838-0f34c2d0773b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
-  ;
-  height:4rem;
-  width: 99%;
-  margin: 10px auto;
-  border-radius: 10px;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  align-content: center;
+  // border: 2px solid rgb(151, 148, 148);
+  background-color:#c99b69;
+  // background-image:url("https://images.unsplash.com/photo-1596468138838-0f34c2d0773b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+  // ;
 
+  background-image:url("https://www.transparenttextures.com/patterns/black-felt.png");
+  ;
+  height:auto;
+  width: 100%;
+  margin: 0px auto;
+  border-radius: 10px;
+ padding-bottom: 7px;
 }
 .filter-options {
   display: flex;
-
+  align-items: center;
   flex-grow:1;
-  justify-content: space-evenly;
-  
+  justify-content: space-around;
+
 }
 
 .filter-button {
   width: 10rem;
   font-size: larger;
+ align-items: center;
+
   
 }
 .btn-filter {
@@ -54,7 +64,9 @@ body {
 }
 
 .dropdown-toggle {
+
   background-color: white;
   color:#6558f5;
   font-size: larger;
+
 }
