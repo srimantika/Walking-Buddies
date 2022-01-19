@@ -14,8 +14,7 @@ article {
   align-self: center;
   flex-grow: 1;
   height: auto;
-  // background-image: url("https://images.unsplash.com/photo-1492931307820-62fa5a68e0df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  
+   
 margin: 10px auto;
   box-sizing: border-box;
   background-color: $bg-color;
@@ -191,7 +190,7 @@ font-weight: bold;
   padding-top: 5px;
   padding-right: 5px;
 }
-.preferred-time {
+.preferred-time-user {
   border: $border-spec;
   border-radius: 5px;
   width: 100%;
@@ -254,104 +253,3 @@ font-weight: bold;
     font-size: larger;
   }
 
-
-// $border-spec: 2px dashed #116e8a;
-// $bg-color: #bb8565;
-// $bg-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
-
-// article {
-//   display: flex;
-//   justify-content: space-evenly;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   text-align: center;
-//   width: 100%;
-//   border-radius: 10px;
-//   align-self: center;
-//   margin: 10px auto;
-//   box-sizing: border-box;
-//   background-color: $bg-color;
-//   background-image: $bg-image; 
-// }
-
-// .photo-container {
-//   flex-basis: 25%;
- 
-  
-//   &photo {
-//     object-fit: cover;
-//     overflow: hidden;
-//   }
-// }
-
-
-
-// .info-container {
-//   flex-basis: 45%;
-//   display: flex;
-//   flex-direction: column;
-//   flex-grow: 1;
-//   border:$border-spec
-// }
-
-// .preferred-time-container {
-//   flex-basis: 20%;
-// }
-
-// .preferred-time {
-//   border: $border-spec;
-//   border-radius: 5px;
-//   width: 100%;
-//   font-size: larger;
-// }
-
-// .chat-button-section {
-//   margin-top: 10px;
-//   margin-bottom: 0px;
-//   align-self: center;
-//   width: 100%;
-// }
-
-// #afternoon-tag {
-//   font-size: larger;
-// }
-
-
-// .chatbutton {
-//   border-radius: 10px;
-//   background-color: #6558f5;
-//   background-image: linear-gradient(#6558f5,#27a39b);
-//   border: none;
-//   color: #FFFFFF;
-//   text-align: center;
-//   font-size: 18px;
-//   padding: 10px;
-//   // width: 180px;
-//   transition: all 0.5s;
-//   cursor: pointer;
-  
-// }
-
-// .chatbutton span {
-//   cursor: pointer;
-//   display: inline-block;
-//   position: relative;
-//   transition: 0.5s;
-// }
-
-// .chatbutton span:after {
-//   content: '\00bb';
-//   position: absolute;
-//   opacity: 0;
-//   top: 0;
-//   right: -20px;
-//   transition: 0.5s;
-// }
-
-// .chatbutton:hover span {
-//   padding-right: 25px;
-// }
-
-// .chatbutton:hover span:after {
-//   opacity: 1;
-//   right: 0; }

@@ -61,7 +61,7 @@ export default function User(props) {
       </div>
 
       <div className="right-section">
-        <div className="preferred-time">
+        <div className="preferred-time-user">
           <div>
             <p>Preferred Time of Walk</p>
           </div>

@@ -8,33 +8,28 @@ import "./User.scss";
 
 export default function UserList(props) {
 
-  let listOfUsers = [];
-
-  if(!props.users.users) {
+  if(!props.users) {
     return "loading"
      }
 
-  listOfUsers = props.users.users.forEach((user) => {
-    <User
-     key = {user.id}
-     name = {user.name}
-     picture = {user.picture}
-     age = {user.age}
-     gender = {user.gender}
-     street_name = {user.street_name}
-     city = {user.city}
-     walk_reason = {user.walk_reason}
-     walk_time = {user.walk_time}
-     interests = {user.interests}
-    />
+  const listOfUsers = props.users.map((user) => {
+    if(user){
+      console.log("individual user", user);
+      return <User
+       key = {user.id}
+       name = {user.name}
+       picture = {user.picture}
+       age = {user.age}
+       gender = {user.gender}
+       street_name = {user.street_name}
+       city = {user.city}
+       walk_reason = {user.walk_reason}
+       walk_time = {user.walk_time}
+       interests = {user.interests}
+      />
+    }
+
   })
-
-
-
- 
-  console.log("all props:",listOfUsers)
-  
-    // const {name, picture, gender, age, street_name, city, walk_reason, walk_time, interests} = props.users.users[0]
 
   return (
     <Fragment>
@@ -74,8 +69,8 @@ export default function UserList(props) {
           <button className="btn filter-button">Filter</button>
         </div>
       </div>
- 
-      {listOfUsers}
+
+ {listOfUsers}
 
     </Fragment>
   );
