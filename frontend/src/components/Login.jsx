@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import '../styles/variables.scss';
 import './Login.scss';
 import axios from 'axios';
+import useApplicationData from '../hooks/useApplicationData';
 
 export default function Login(){
   
   const [email, setEmail] =     useState("");
   const [password, setPassword] =useState("");
+  const { state, dispatch } = useApplicationData();
+
 
   const verify = (e) =>{
    console.log(email);
@@ -15,14 +18,20 @@ export default function Login(){
    const user = {email, password};
 
    axios.post('/api/users/login', user )
-   .then(res => console.log(res.data));
-   
+   .then(res => {
+     console.log(res.data);
+     state.currentUserEmail = res.data.user_email;
+     state.currentUserPostalcode = res.data.postal_code;
+     console.log("STATE",state);
+   }
+   );
   }
+
+  
 
   return (
     
-  
-      <div className="login" id="login">
+    <div className="login" id="login">
 
     <nav>
       <div className="content-left">
