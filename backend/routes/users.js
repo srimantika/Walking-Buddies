@@ -29,7 +29,9 @@ module.exports = ({ getUsers, addUser, getUserByEmail}) => {
         
         console.log("Data in Backend",req.body);
 
-        const {name, picture, email, password, age, gender, street_name, city, postal_code, walk_reason, walk_time, interests}= req.body;
+        let {name, picture, email, password, age, gender, street_name, city, postal_code, walk_reason, walk_time, interests}= req.body;
+        
+        // picture = picture.split("base64,")[1];
         
         getUserByEmail(email)
             .then(user => {
