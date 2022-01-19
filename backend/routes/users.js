@@ -1,15 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {
-    getPostsByUsers
-} = require('../helpers/dataHelpers');
+const {getUsers, addUser, getUserByEmail} = require('../helpers/dataHelpers');
 
-module.exports = ({
-    getUsers
-    // getUserByEmail,
-    // addUser,
-    // getUsersPosts
-}) => {
+module.exports = ({ getUsers, addUser, getUserByEmail}) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
         getUsers()
@@ -19,6 +12,7 @@ module.exports = ({
             }));
     });
 
+    //*************************************************************************/
     // router.get('/posts', (req, res) => {
     //     getUsersPosts()
     //         .then((usersPosts) => {
@@ -30,33 +24,32 @@ module.exports = ({
     //         }));
     // });
 
-    // router.post('/', (req, res) => {
+    //*************************************************************************/
+    router.post('/add', (req, res) => {
+        
+        console.log("Data in Backend",req.body);
 
-    //     const {
-    //         first_name,
-    //         last_name,
-    //         email,
-    //         password
-    //     } = req.body;
+        const {name, picture, email, password, age, gender, street_name, city, postal_code, walk_reason, walk_time, interests}= req.body;
+        
+        getUserByEmail(email)
+            .then(user => {
 
-    //     getUserByEmail(email)
-    //         .then(user => {
+                if (user) {
+                    res.json({
+                        msg: 'Sorry, a user account with this email already exists'
+                    });
+                } else {
+                    return addUser(name, picture, email, password, age, gender, street_name, city, postal_code, walk_reason, walk_time, interests)
+                }
 
-    //             if (user) {
-    //                 res.json({
-    //                     msg: 'Sorry, a user account with this email already exists'
-    //                 });
-    //             } else {
-    //                 return addUser(first_name, last_name, email, password)
-    //             }
+            })
+            .then(newUser => res.json(newUser))
+            .catch(err => res.json({
+                error: err.message
+            }));
+    
 
-    //         })
-    //         .then(newUser => res.json(newUser))
-    //         .catch(err => res.json({
-    //             error: err.message
-    //         }));
-
-    // })
-
+    })
+    //*************************************************************************/
     return router;
 };

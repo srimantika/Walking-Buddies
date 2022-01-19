@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Checkbox from './Checkbox';
+import axios from 'axios';
 
 
 import './Register.scss';
@@ -30,9 +31,9 @@ export default function Register(){
   const interest=[];
   const [selectedImage, setSelectedImage] = useState( 
     {profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'});
-
   const [checkedItems, setCheckedItems] = useState({}); //plain object as state
 
+  let newUser = {};
   const handleChange = (event) => {
      setCheckedItems({...checkedItems, [event.target.name] : event.target.checked });
   }
@@ -48,26 +49,32 @@ export default function Register(){
     };
 
   const handleSubmit = (e) =>{
-    console.log(name);
-    console.log(email);
-    console.log(password);
-    console.log(age);
-    console.log(gender);
-    console.log(street);
-    console.log(city);
-    console.log(areacode);
-    console.log(reason);
-    console.log(time);
-    console.log(selectedImage.profileImg);
+    // console.log(name);
+    // console.log(email);
+    // console.log(password);
+    // console.log(age);
+    // console.log(gender);
+    // console.log(street);
+    // console.log(city);
+    // console.log(areacode);
+    // console.log(reason);
+    // console.log(time);
+    // console.log(selectedImage.profileImg);
 
     for (let key in checkedItems ){
       if (checkedItems[key]===true){
-        interest.push(key)
-
+        interest.push(key);
       }
     }
-    console.log(interest);
+
+    // console.log(interest.join());
     
+    newUser = {name:name, picture:selectedImage.profileImg, email:email, password:password, age:age, gender:gender, street_name: street, city:city, postal_code:areacode, walk_reason:reason, walk_time: time, interests:interest.join()}
+
+    console.log(newUser);
+
+    axios.post('/api/users/add', newUser)
+    .then(res => console.log(res.data));
 
   }
 
