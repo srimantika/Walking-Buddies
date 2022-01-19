@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/variables.scss'
-import './Login.scss'
-import useApplicationData from '../hooks/useApplicationData';
+import '../styles/variables.scss';
+import './Login.scss';
 import axios from 'axios';
-
+import useApplicationData from '../hooks/useApplicationData';
 
 export default function Login(){
 
@@ -11,6 +10,8 @@ export default function Login(){
  
   const [email, setEmail] =     useState("");
   const [password, setPassword] =useState("");
+  const { state, dispatch } = useApplicationData();
+
 
   const verify = (e) =>{
     console.log(email);
@@ -29,16 +30,17 @@ export default function Login(){
    }
  
 
+  
+
   return (
     
-  
-      <div class="login" id="login">
+    <div className="login" id="login">
 
     <nav>
-      <div class="content-left">
-        <img src="/images/Logo.png" class="logo" />
+      <div className="content-left">
+        <img src="/images/Logo.png" className="logo" />
        
-          <div class="title">
+          <div className="title">
             <span>Walking Buddies</span>
           </div>
        
@@ -53,7 +55,7 @@ export default function Login(){
        
         <div className="form-username">
           <label> Email:</label>
-          <input type="email" value={email} required name="email" placeholder = "Email Id" class="form-control" 
+          <input type="email" value={email} required name="email" placeholder = "Email Id" className="form-control" 
           onChange={(event) => setEmail(event.target.value)}
           />
         </div>
@@ -61,7 +63,7 @@ export default function Login(){
       
         <div className="form-password">
           <label>Password:</label>
-          <input type="password" value={password} required name="password" placeholder = "Password" class="form-control" 
+          <input type="password" value={password} required name="password" placeholder = "Password" className="form-control" 
           onChange={(event) => setPassword(event.target.value)}
           />
         </div>

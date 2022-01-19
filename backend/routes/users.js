@@ -35,7 +35,6 @@ module.exports = ({ getUsers, addUser, getUserByEmail}) => {
         
         getUserByEmail(email)
             .then(user => {
-
                 if (user) {
                     res.json({
                         msg: 'Sorry, a user account with this email already exists'
@@ -83,7 +82,6 @@ module.exports = ({ getUsers, addUser, getUserByEmail}) => {
                             msg: 'Incorrect Password! Try Again!'
                         });
                     }
-
                 }
 
             })

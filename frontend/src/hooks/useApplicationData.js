@@ -14,6 +14,7 @@ const useApplicationData = () => {
       currentUserEmail: "",
       currentUserPostalcode: ""
   });
+
   useEffect(() => {
       axios({
               method: 'GET',
