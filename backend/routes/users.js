@@ -31,20 +31,26 @@ module.exports = ({ getUsers, addUser, getUserByEmail,getUsersPostalcode}) => {
 
         let {name, picture, email, password, age, gender, street_name, city, postal_code, walk_reason, walk_time, interests}= req.body;
         
-        // picture = picture.split("base64,")[1];
+        
         
         getUserByEmail(email)
             .then(user => {
                 if (user) {
                     res.json({
-                        msg: 'Sorry, a user account with this email already exists'
+                        msg: 'Sorry, a user account with this email already exists.'
                     });
                 } else {
                     return addUser(name, picture, email, password, age, gender, street_name, city, postal_code, walk_reason, walk_time, interests)
                 }
 
             })
-            .then(newUser => res.json(newUser))
+            .then(newUser => {
+                
+                res.json({
+                    msg: 'Registered successfully. Please Login!'
+                });
+                
+            })
             .catch(err => res.json({
                 error: err.message
             }));

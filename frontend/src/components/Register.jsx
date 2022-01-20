@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 
 import './Register.scss';
@@ -32,6 +33,8 @@ export default function Register(){
   const [selectedImage, setSelectedImage] = useState( 
     {profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'});
   const [checkedItems, setCheckedItems] = useState({}); //plain object as state
+
+  const [register, setRegister] = useState('');
 
   let newUser = {};
   const handleChange = (event) => {
@@ -66,24 +69,26 @@ export default function Register(){
         interest.push(key);
       }
     }
-
-    // console.log(interest.join());
     
     newUser = {name:name, picture:selectedImage.profileImg, email:email, password:password, age:age, gender:gender, street_name: street, city:city, postal_code:areacode, walk_reason:reason, walk_time: time, interests:interest.join()}
 
-    console.log(newUser);
-
     axios.post('/api/users/add', newUser)
-    .then(res => console.log(res.data));
+    .then(res =>{
+      console.log(res.data.msg);
+      setRegister(res.data.msg);}
+    );
 
   }
 
   const { profileImg}=selectedImage;
   
   return (
-    <div className="container_register">
-     
-        <form autoComplete="off"  onSubmit={event => event.preventDefault()}>
+  <div className="container_register">
+    {register.startsWith("Sorry") && <div>{register}</div>}
+    {register.startsWith("Registered") && <Redirect to={{pathname: '/Login',  state:{}}} />}
+    {!register &&
+    <div  className="container_register2">
+        <form className="register_form" autoComplete="off"  onSubmit={event => event.preventDefault()}>
             
             <div className="group1">
             <div className="main_profile">
@@ -180,14 +185,15 @@ export default function Register(){
               ))
           }
           </div>
-          
-         
-          
         </form>
+
       
       <button type="button" className="btn" onClick={handleSubmit}>
          <span>Register</span>
       </button>
+
     </div>
+    }
+  </div>
   )
 }
