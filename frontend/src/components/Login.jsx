@@ -27,7 +27,7 @@ export default function Login(){
       state.currentUserEmail = res.data.user_email;
       state.currentUserPostalcode = res.data.postal_code;
       console.log("STATE",state);
-      setLogin({check: true, msg:res.data.msg,user:res.data.user_email, postal_code:res.data.currentUserPostalcode});
+      setLogin({check: true, msg:res.data.msg,user:res.data.user_email, postal_code:res.data.postal_code});
     }
     );
    }
@@ -85,7 +85,7 @@ export default function Login(){
 
       {login.check === true && (login.msg==="Incorrect Password! Try Again!" || login.msg==="Sorry, a user account with this email does not exist") && <label>{login.msg}</label>}
 
-      {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{email:login.user, postal_code:login}}} />}
+      {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{email:login.user, postal_code:login.postal_code}}} />}
 
      
     </div>
