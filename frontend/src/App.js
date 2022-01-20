@@ -32,9 +32,7 @@ const App = () => {
             <Register />
           </Route>
 
-          <Route path="/UserList">
-            <UserList users={state.users} />
-          </Route>
+          <Route path="/UserList" render={(props) => <UserList {...props}/>}/>
 
           <Route path="/Chat">
             <Chat />
