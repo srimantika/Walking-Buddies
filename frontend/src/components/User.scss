@@ -19,6 +19,10 @@ article {
   box-sizing: border-box;
   background-color: $bg-color;
   background-image: $bg-image;
+  div {
+    margin: 5px;
+    // padding: 3px;
+  }
 }
 
 .left-section {
@@ -49,6 +53,7 @@ article {
   object-fit: contain;
   overflow: hidden;
 }
+
 
 .icon-name {
   width: 40px;
@@ -112,16 +117,13 @@ img:hover {
   word-wrap: break-word;
 }
 
-div {
-  margin: 5px;
-  // padding: 3px;
-  // border: 3px solid gray;
-}
 
 .right-of-photo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+
 }
 
 .likes {
