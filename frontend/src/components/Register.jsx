@@ -84,11 +84,35 @@ export default function Register(){
   
   return (
   <div className="container_register">
-    {register.startsWith("Sorry") && <div>{register}</div>}
+     <nav>
+      <div class="content-left">
+        <img src="/images/Logo.png" class="logo" />
+       
+          <div class="title">
+            <span>Walking Buddies</span>
+          </div>
+       
+      </div>
+      <div class="content-right">
+          <a href="/login">
+            <button type="button" class="btn btn-dark" data-mdb-ripple-color="dark">
+              <span>Login</span>
+            </button>
+          </a>
+         
+      </div>
+
+    </nav>
+
+   
+
+  
     {register.startsWith("Registered") && <Redirect to={{pathname: '/Login',  state:{}}} />}
-    {!register &&
+    
+    
     <div  className="container_register2">
-        <form className="register_form" autoComplete="off"  onSubmit={event => event.preventDefault()}>
+    {register.startsWith("Sorry") && <h4>{register}!</h4>}
+          <form className="register_form" autoComplete="off"  onSubmit={event => event.preventDefault()}>
             
             <div className="group1">
             <div className="main_profile">
@@ -104,6 +128,7 @@ export default function Register(){
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
+              
               <div className="group">
                 <label>Password:</label>
                 <input type="password" required value={password} placeholder="Password "  required    
@@ -193,7 +218,7 @@ export default function Register(){
       </button>
 
     </div>
-    }
+    
   </div>
   )
 }

@@ -16,6 +16,7 @@
 
 
 .container_register2 {
+  padding-top: 110px;
   width: 70%;
   background-color: white;
   padding-left: 4em;
@@ -266,3 +267,35 @@ label {
 .btn:hover span:after {
   opacity: 1;
   right: 0; }
+
+  .logo {
+    width: 5.5rem;
+    align-self: center;
+    margin-right: 5px;
+  }
+  
+  
+  
+  .title {
+    margin-top: 2rem;
+    letter-spacing: 1.5px;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-left {
+    display: flex;
+  }
+  
+  .title span {
+    line-height: 30px;
+    align-self: center;
+    color: #51cec3;
+    font-size:25px;
+    background: -webkit-linear-gradient(#6558f5,#27a39b);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+  
