@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import useApplicationData from "../hooks/useApplicationData.js";
 
 import "../styles/variables.scss";
@@ -9,41 +9,127 @@ import User from "./User";
 import "./User.scss";
 
 export default function UserList(props) {
-  // const { state, dispatch } = useApplicationData();
+  const filterState = {    
+    age: '',
+    gender: '',
+    walk_reason: '',
+    walk_time: ''
+  }
+  const [users, setUsers] = useState([]);
+  const [filterObject, setfilterObject] = useState(filterState);
 
-  // const ages = ['Age','18-25','25-35','35-45','45-55','55-65','65+'];
-  // const genders = ['Gender','Male', 'Female'];
-  // const times = ['Time of Walk','Morning', 'Afternoon', 'Evening']
-  // const reasons = ['Reason of Walk','Leisure', 'Socializing','Weight Loss', 'Staying Fit', 'Walking my pet', 'Taking my baby out on a stroll' ]
 
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [time, setTime] = useState("");
-  const [reason, setReason] = useState("");
 
-   if (!props.location.state.users) {
-    return "loading";
+  useEffect(() => {
+    if (!props.location.state.users) {
+      return "loading";
+    }
+    setUsers(props.location.state.users);
+  }, []);
+
+  // useEffect(() => {
+  //   const usersCopy = [...props.location.state.users]
+  //   const filteredUsers = usersCopy.filter((user) => {
+  //     if(user.age) {
+  //       return user.age === age 
+  //     }
+  //   })
+  //   console.log("usersCopy:",usersCopy)
+  //   console.log("filteredUsers:",filteredUsers);
+  //   setUsers(filteredUsers);
+  //   console.log("users:",users)
+  // },[age])
+
+
+  // useEffect(() => {
+  //   if(age) {
+  //     const userslist = gender
+  //     ? users.filter((user) => {
+  //         return user.age === age;
+  //       })
+  //     : props.location.state.users;
+  //   }
+
+  //   if(gender) {
+  //     const userslist = gender
+  //     ? users.filter((user) => {
+  //         return user.gender === gender;
+  //       })
+  //     : props.location.state.users;
+  //   }
+
+  //   if(time) {
+  //     const userslist = gender
+  //     ? users.filter((user) => {
+  //         return user.walk_time === time;
+  //       })
+  //     : props.location.state.users;
+  //   }
+
+  // })
+
+  const setFilterItem = (event,type) => {
+    if(type === "Age") {
+      const newfilterObj = {
+        ...filterObject,
+        age:event.target.value
+      }
+      setfilterObject(newfilterObj);
+    }
+    if(type === "Gender") {
+      const newfilterObj = {
+        ...filterObject,
+        gender:event.target.value
+      }
+      setfilterObject(newfilterObj);
+    }
+    if(type === "Time") {
+      const newfilterObj = {
+        ...filterObject,
+        walk_time:event.target.value
+      }
+      setfilterObject(newfilterObj);
+    }
+    if(type === "Reason") {
+      const newfilterObj = {
+        ...filterObject,
+        walk_reason:event.target.value
+      }
+      setfilterObject(newfilterObj);
+    }
   }
 
-  const listOfUsers = props.location.state.users.map((user) => {
-    if (user ) {
-      return (
-        <User
-          key={user.id}
-          name={user.name}
-          picture={user.picture}
-          age={user.age}
-          gender={user.gender}
-          street_name={user.street_name}
-          city={user.city}
-          walk_reason={user.walk_reason}
-          walk_time={user.walk_time}
-          interests={user.interests}
-        />
-      );
-    }
-  });
+var userslist = props.location.state.users;
+    ["age", "gender", "walk_time", "walk_reason"].forEach(function(filterBy) {
+      console.log("filterobject:",filterObject)
+      let filterValue = filterObject[filterBy];
+      console.log("filtervalue:",filterValue)
+      if (filterValue) {
+        userslist = userslist.filter(function(item) {
+          return item[filterBy] === filterValue;
+        });
+      }
+    });
 
+
+  const renderedUsers = userslist.map((user) => {
+    return (
+      <User
+        key={user.id}
+        name={user.name}
+        picture={user.picture}
+        age={user.age}
+        gender={user.gender}
+        street_name={user.street_name}
+        city={user.city}
+        walk_reason={user.walk_reason}
+        walk_time={user.walk_time}
+        interests={user.interests}
+      />
+    );
+
+  });
+ 
 
   return (
     <Fragment>
@@ -79,28 +165,12 @@ export default function UserList(props) {
       <img src="/images/userlist_topimg.jpg" className="top-image" />
       <div className="filter-section">
         <div className="filter-options">
-          {/* <select
-            className="fbtn btn-primary dd-toggle"
-            value={ages} onChange={(event) => {setAge(event.target.value)
-              console.log(age)}}>
-            {ages.map(age => (<option key={age}>{age}</option>))}
-          </select> */}
-
-          {/* <select
-            className="fbtn btn-primary dd-toggle"
-            value={genders} onChange={(event) => {setGender(event.target.value)
-              console.log(event.target.value)}}>
-                <option disabled selected>Gender</option>
-            {genders.map(gender => <option key={gender}>{gender}</option>)}
-          </select> */}
-
+  
           <select
             className="fbtn btn-primary dd-toggle"
-            onChange={(event) => setAge(event.target.value)}
+            onChange={(event) => setFilterItem(event, "Age")}
           >
-            <option disabled selected>
-              Age
-            </option>
+            <option value="">Age</option>
             <option value="18-25">18-25</option>
             <option value="25-35">25-35</option>
             <option value="35-45">35-45</option>
@@ -111,22 +181,18 @@ export default function UserList(props) {
 
           <select
             className="fbtn btn-primary dd-toggle"
-            onChange={(event) => setGender(event.target.value)}
+            onChange={(event) => setFilterItem(event, "Gender")}
           >
-            <option disabled selected>
-              Gender
-            </option>
+            <option value="">Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
 
           <select
             className="fbtn btn-primary dd-toggle"
-            onChange={(event) => setTime(event.target.value)}
+            onChange={(event) => setFilterItem(event, "Time")}
           >
-            <option disabled selected>
-              Time of Walk
-            </option>
+            <option value="">Time of Walk</option>
             <option value="Morning">Morning</option>
             <option value="Afternoon">Afternoon</option>
             <option value="Evening">Evening</option>
@@ -135,13 +201,11 @@ export default function UserList(props) {
           <select
             className="fbtn btn-primary dd-toggle"
             onChange={(event) => {
-              setReason(event.target.value);
-              console.log(event.target.value);
+              setFilterItem(event, "Reason");
+              // console.log(event.target.value);
             }}
           >
-            <option disabled selected>
-              Reason of Walk
-            </option>
+            <option value="">Reason of Walk</option>
             <option value="Leisure">Leisure</option>
             <option value="Socializing">Socializing</option>
             <option value="Weight Loss">Weight Loss</option>
@@ -156,7 +220,7 @@ export default function UserList(props) {
         </div>
       </div>
 
-      {listOfUsers}
+      {renderedUsers}
     </Fragment>
   );
 }
