@@ -14,6 +14,13 @@
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
+
+.container_register2 {
+  width: 70%;
+  background-color: white;
+  padding-left: 4em;
+}
+
 input {
   height: 1.8em;
   font-size: 1em;
@@ -29,10 +36,12 @@ label {
   width: 3em;
 }
 
-form {
+
+.register_form {
   margin-top: 2em;
   font:$font-family;
   align-items: center;
+  
 }
 
 .group {
@@ -90,7 +99,7 @@ form {
   }
 
   select {
-    width: 25em;
+    // width: 25em;
     flex-grow: 1;
     flex-basis: 25%;
     margin-top: 0.5em;
