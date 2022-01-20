@@ -46,10 +46,16 @@ export default function Login(){
           </div>
        
       </div>
+      <div class="content-right">
+          <a href="/">
+          <img src="/images/HomeIcon.jpeg" className="HomeIcon" />
+          </a>
+
+      </div>
 
     </nav>
     <div>
-      <h4>Welcome back ! Login to find your walking Buddy !</h4>
+      <h5>Welcome back ! Login to find your walking Buddy !</h5>
     </div>
 
     {login.check===false &&
@@ -57,7 +63,7 @@ export default function Login(){
        
         <div className="form-username">
           <label> Email:</label>
-          <input type="email" value={email} required name="email" placeholder = "Email Id" className="form-control" 
+          <input type="email" value={email}  name="email" placeholder = "Email Id" className="form-control" 
           onChange={(event) => setEmail(event.target.value)}
           />
         </div>
@@ -65,7 +71,7 @@ export default function Login(){
       
         <div className="form-password">
           <label>Password:</label>
-          <input type="password" value={password} required name="password" placeholder = "Password" className="form-control" 
+          <input type="password" value={password}  name="password" placeholder = "Password"  className="form-control" 
           onChange={(event) => setPassword(event.target.value)}
           />
         </div>
@@ -81,7 +87,13 @@ export default function Login(){
       </form>
       }
 
-      {login.check === true && (login.msg==="Incorrect Password! Try Again!" || login.msg==="Sorry, a user account with this email does not exist") && <label>{login.msg}</label>}
+      {login.check === true && (login.msg==="Incorrect Password! Try Again!" || login.msg==="Sorry, a user account with this email does not exist") && 
+      <div className = "Tryagain">
+        <h5>{login.msg}!</h5>
+        <a href="/login">
+          <img src="/images/tryagain.jpeg" className="HomeIcon" />
+          </a>
+        </div>}
 
       {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{email:login.email, users:login.users}}} />}
 
