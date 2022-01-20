@@ -10,6 +10,7 @@ import "./User.scss";
 export default function UserList(props) {
   const { state, dispatch } = useApplicationData();
   // console.log("users from state", state.users);
+  console.log("STATE is userlist",props.location.state);
 
   if(!props.users) {
     return "loading"
@@ -33,6 +34,7 @@ export default function UserList(props) {
     }
 
   })
+
 
   return (
     <Fragment>
