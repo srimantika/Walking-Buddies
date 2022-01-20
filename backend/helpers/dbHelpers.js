@@ -38,25 +38,25 @@ module.exports = (db) => {
     }
   
     //*************************************************************************/
-    // const getUsersPosts = () => {
-    //     const query = {
-    //         text: `SELECT users.id as user_id, first_name, last_name, email, posts.id as post_id, title, content
-    //     FROM users
-    //     INNER JOIN posts
-    //     ON users.id = posts.user_id`
-    //     }
+    const getUsersPostalcode = (postal_code,email) => {
+        
+        const query = {
+            text: `SELECT * FROM users WHERE postal_code LIKE $1 AND email != $2` ,
+            values: [`${postal_code}%`, email]
+        }
   
-    //     return db.query(query)
-    //         .then(result => result.rows)
-    //         .catch(err => err);
+        return db
+            .query(query)
+            .then(result => result.rows)
+            .catch((err) => err);
+    }
   
-    // }
   
     return {
         getUsers,
         getUserByEmail,
         addUser,
-        // getUsersPosts
+        getUsersPostalcode
     };
   };
   

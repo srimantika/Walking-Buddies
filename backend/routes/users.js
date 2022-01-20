@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {getUsers, addUser, getUserByEmail} = require('../helpers/dataHelpers');
+const {getUsers, addUser, getUserByEmail,getUsersPostalcode} = require('../helpers/dataHelpers');
 
-module.exports = ({ getUsers, addUser, getUserByEmail}) => {
+module.exports = ({ getUsers, addUser, getUserByEmail,getUsersPostalcode}) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
         getUsers()
@@ -71,12 +71,28 @@ module.exports = ({ getUsers, addUser, getUserByEmail}) => {
                 } else {
                     if(user.password === password){
                         console.log(user.postal_code);
-                        res.json({
-                            msg: 'Password Match!',
-                            user_email: user.email,
-                            postal_code: user.postal_code
-                        });
-                    }
+                        let postal_code = user.postal_code.slice(0,3);
+                        let email = user.email
+                        let msg = "Password Match!"
+                        getUsersPostalcode(postal_code,email)
+                        .then ( users => {
+                            console.log("UserList", users)
+                            res.json ({
+                                msg : msg,
+                                email : email,
+                                users : users
+
+                            })
+
+                        })                
+                        /* getUserByEmail */
+                        // res.json({
+                        //     msg: 'Password Match!',
+                        //     user_email: user.email,
+                        //     postal_code: user.postal_code,
+                            
+                        // });
+                    } /* end of if */
                     else {
                         res.json({
                             msg: 'Incorrect Password! Try Again!'
@@ -85,7 +101,7 @@ module.exports = ({ getUsers, addUser, getUserByEmail}) => {
                 }
 
             })
-            .then(newUser => res.json(newUser))
+            //.then(newUser => res.json(newUser))
             .catch(err => res.json({
                 error: err.message
             }));

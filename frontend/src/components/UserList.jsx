@@ -12,11 +12,11 @@ export default function UserList(props) {
   // console.log("users from state", state.users);
   console.log("STATE is userlist", props.location.state);
 
-  if(!props.users) {
+  if(!props.location.state.users) {
     return "loading"
      }
 
-  const listOfUsers = props.users.map((user) => {
+  const listOfUsers = props.location.state.users.map((user) => {
     if(user){
       // console.log("individual user", user);
       return <User

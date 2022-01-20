@@ -11,7 +11,7 @@ export default function Login(){
  
   const [email, setEmail] =     useState("");
   const [password, setPassword] =useState("");
-  const [login, setLogin] = useState({check:false, msg:"",user:"",postal_code:""});
+  const [login, setLogin] = useState({check:false, msg:"",email:"",users:[]});
 
 
 
@@ -23,11 +23,9 @@ export default function Login(){
  
     axios.post('/api/users/login', user )
     .then(res => {
-      console.log(res.data);
-      state.currentUserEmail = res.data.user_email;
-      state.currentUserPostalcode = res.data.postal_code;
-      console.log("STATE",state);
-      setLogin({check: true, msg:res.data.msg,user:res.data.user_email, postal_code:res.data.postal_code});
+      console.log("data from res", res.data);
+      //console.log("STATE",state);
+      setLogin({check: true, msg:res.data.msg,email:res.data.email, users:res.data.users});
     }
     );
    }
@@ -85,7 +83,7 @@ export default function Login(){
 
       {login.check === true && (login.msg==="Incorrect Password! Try Again!" || login.msg==="Sorry, a user account with this email does not exist") && <label>{login.msg}</label>}
 
-      {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{email:login.user, postal_code:login.postal_code}}} />}
+      {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{email:login.email, users:login.users}}} />}
 
      
     </div>
