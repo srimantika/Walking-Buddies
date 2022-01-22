@@ -44,7 +44,7 @@ module.exports = ({ getUsers, addUser, getUserByEmail,getUsersPostalcode}) => {
                 }
 
             })
-            .then(newUser => {
+            .then(() => {
                 
                 res.json({
                     msg: 'Registered successfully. Please Login!'
@@ -78,7 +78,8 @@ module.exports = ({ getUsers, addUser, getUserByEmail,getUsersPostalcode}) => {
                     if(user.password === password){
                         console.log(user.postal_code);
                         let postal_code = user.postal_code.slice(0,3);
-                        let email = user.email
+                        let name = user.name;
+                        let email = user.email;
                         let msg = "Password Match!"
                         getUsersPostalcode(postal_code,email)
                         .then ( users => {
@@ -86,6 +87,7 @@ module.exports = ({ getUsers, addUser, getUserByEmail,getUsersPostalcode}) => {
                             res.json ({
                                 msg : msg,
                                 email : email,
+                                name: name,
                                 users : users
 
                             })
