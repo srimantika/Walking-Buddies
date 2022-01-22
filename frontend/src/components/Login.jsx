@@ -11,7 +11,7 @@ export default function Login(){
  
   const [email, setEmail] =     useState("");
   const [password, setPassword] =useState("");
-  const [login, setLogin] = useState({check:false, msg:"",email:"",users:[]});
+  const [login, setLogin] = useState({check:false, msg:"",name:"",users:[]});
 
 
 
@@ -25,7 +25,7 @@ export default function Login(){
     .then(res => {
       console.log("data from res", res.data);
       //console.log("STATE",state);
-      setLogin({check: true, msg:res.data.msg,email:res.data.email, users:res.data.users});
+      setLogin({check: true, msg:res.data.msg, name:res.data.name, users:res.data.users});
     }
     );
    }
@@ -95,7 +95,7 @@ export default function Login(){
           </a>
         </div>}
 
-      {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{email:login.email, users:login.users}}} />}
+      {login.check === true && login.msg==="Password Match!" &&  <Redirect to={{pathname: '/UserList',  state:{name:login.name, password:password, users:login.users}}} />}
 
      
     </div>
