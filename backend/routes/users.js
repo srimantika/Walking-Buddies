@@ -44,11 +44,9 @@ module.exports = ({ getUsers, addUser, getUserByEmail,getUsersPostalcode}) => {
                 }
 
             })
-            .then(() => {
+            .then((newUser) => {
                 
-                res.json({
-                    msg: 'Registered successfully. Please Login!'
-                });
+                res.json(newUser);
                 
             })
             .catch(err => res.json({
