@@ -8,18 +8,24 @@
   width: 100%;
   font:$font-family;
   font-size: 15px;
-  margin-left: 2em;
+  //margin-left: 2em;
   flex-wrap: wrap;
-  background-color: #cce8e7;
+  background-color: #80cbc4;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  
 }
 
 
 .container_register2 {
-  padding-top: 110px;
-  width: 70%;
-  background-color: white;
-  padding-left: 4em;
+  padding-top: 50px;
+  margin-top: 120px;
+  padding-bottom : 50px;
+  width: 80%;
+  
+  background-color: #e0f2f1;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  padding-left: 6em;
+ 
 }
 
 input {
@@ -72,7 +78,7 @@ label {
 
   select {
     font-size: 1em;
-    width:22.5em;
+    width:22em;
   }
 
     
@@ -109,7 +115,7 @@ label {
 
 .group3 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-bottom: 1em;
   margin-right: 10em;
   border-style: solid;
@@ -120,7 +126,7 @@ label {
     
   label{
     margin-right: 0.3em;
-    margin-left: 0.3em;
+    margin-left: 1em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     flex-basis: 10.5%;
@@ -168,11 +174,11 @@ label {
 }
 .img-holder{
   margin: auto;
-  width: 250px;
-  height: 250px;
-  border: 3px black solid;
+  width: 258px;
+  height: 258px;
+  border: 3px $green solid;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 .img{
   width: 250px;
@@ -192,8 +198,8 @@ label {
   margin: auto;
   width: 200px;
 	height: 30px;
-  color:black;
-  border-radius: 10px;
+  // color:black;
+  // border-radius: 10px;
   background-color: $green;
   text-align: center;
   cursor: pointer;
@@ -226,10 +232,11 @@ label {
  margin-right: 1em;
 }
 #city {
-  width: 8.1em;
+  width: 8.8em;
  }
 
  .btn {
+   margin-top: 10px;
   border-radius: 10px;
   background-color: #6558f5;
   background-image: linear-gradient(#6558f5,#27a39b);
@@ -238,7 +245,7 @@ label {
   text-align: center;
   font-size: 18px;
   padding: 10px;
-  width: 180px;
+  width: 200px;
   transition: all 0.5s;
   cursor: pointer;
 
