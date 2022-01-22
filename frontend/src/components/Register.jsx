@@ -8,10 +8,10 @@ import './Register.scss';
 
 export default function Register(){
   
-  const ages = ["20-40","40-60", "60-80"];
-  const genders = ["Male","Female"];
-  const reasons = ["Leisure", "Socializing", "Weight Loss", "Staying Fit",  "Walking my pet", "Taking my baby out on a stroll"];
-  const times = ["Morning","Afternoon","Evening"];
+  const ages = ["Select One", "18-25","25-35", "35-45","45-55","55-65","65+"];
+  const genders = ["Select One", "Male","Female"];
+  const reasons = ["Select One", "Leisure", "Socializing", "Weight Loss", "Staying Fit",  "Walking my pet", "Taking my baby out on a stroll"];
+  const times = ["Select One", "Morning","Afternoon","Evening"];
   const interests= ["Games 🎮", "Music 🎵", "Movies 🎬", "Reading 📚","Sports ⚽",
                     "Food & Drinks ☕", "Arts 🎨","Politics 🤵",
                     "Travel 🌎", "Fashion 👗", "Fitness 🏋️‍♂️",
@@ -34,7 +34,7 @@ export default function Register(){
     {profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'});
   const [checkedItems, setCheckedItems] = useState({}); //plain object as state
 
-  const [register, setRegister] = useState('');
+  const [register, setRegister] = useState(false);
 
   let newUser = {};
   const handleChange = (event) => {
@@ -74,8 +74,12 @@ export default function Register(){
 
     axios.post('/api/users/add', newUser)
     .then(res =>{
-      console.log(res.data.msg);
-      setRegister(res.data.msg);}
+      console.log(res.data);
+        if (!res.data.hasOwnProperty("msg"))
+        {
+           setRegister(true);
+        }
+      }
     );
 
   }
@@ -107,11 +111,11 @@ export default function Register(){
    
 
   
-    {register.startsWith("Registered") && <Redirect to={{pathname: '/Login',  state:{}}} />}
+    {register===true && <Redirect to={{pathname: '/Login',  state:{}}} />}
     
     
     <div  className="container_register2">
-    {register.startsWith("Sorry") && <h4>{register}!</h4>}
+    {register===false && <h4>Sorry, a user account with this email already exists!</h4>}
           <form className="register_form" autoComplete="off"  onSubmit={event => event.preventDefault()}>
             
             <div className="group1">
@@ -148,7 +152,7 @@ export default function Register(){
                 </select>  
               </div>
               <div className="group">
-                <label>Adress:</label>
+                <label>Address:</label>
                 <input id="street" type="text" required value={street} placeholder="Street Name"      
                   onChange={(event) => setStreet(event.target.value)}
                 />
