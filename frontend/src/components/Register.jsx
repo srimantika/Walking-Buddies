@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-
-
 import './Register.scss';
+
 
 export default function Register(){
   
@@ -34,22 +33,53 @@ export default function Register(){
     {profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'});
   const [checkedItems, setCheckedItems] = useState({}); //plain object as state
 
-  const [register, setRegister] = useState(false);
+  const [register, setRegister] = useState("");
 
   let newUser = {};
   const handleChange = (event) => {
      setCheckedItems({...checkedItems, [event.target.name] : event.target.checked });
   }
 
-    const imageHandler = (e) => {
-      const reader = new FileReader();
-      reader.onload = () =>{
-        if(reader.readyState === 2){
-          setSelectedImage({profileImg: reader.result})
-        }
-      }
-      reader.readAsDataURL(e.target.files[0])
+  const apiRegister = (newUser) => {
+    let data = {
+      "username": `${newUser.name}`,
+      "secret": `${newUser.password}`,
+      "email": `${newUser.email}`,
+      "first_name":`${newUser.name}` ,
     };
+
+    const private_key =process.env.REACT_APP_API_KEY;
+    
+    let config = {
+      method: 'post',
+      url: 'https://api.chatengine.io/users/',
+      headers: {'PRIVATE-KEY': `${private_key}`},
+      data : data
+    };
+
+    console.log(data);
+    console.log(config);
+    console.log(config.headers['PRIVATE-KEY']);
+    
+    axios(config)
+   .then(function (response) {
+	  console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+	  console.log(error);
+    });
+
+  }
+
+  const imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () =>{
+      if(reader.readyState === 2){
+        setSelectedImage({profileImg: reader.result})
+      }
+    }
+    reader.readAsDataURL(e.target.files[0])
+  };
 
   const handleSubmit = (e) =>{
     // console.log(name);
@@ -75,9 +105,13 @@ export default function Register(){
     axios.post('/api/users/add', newUser)
     .then(res =>{
       console.log(res.data);
-        if (!res.data.hasOwnProperty("msg"))
+        if (res.data.hasOwnProperty("msg"))
         {
-           setRegister(true);
+           setRegister("sorry");
+        }
+        else{
+          setRegister("registered");
+          apiRegister(res.data);
         }
       }
     );
@@ -111,11 +145,11 @@ export default function Register(){
    
 
   
-    {register===true && <Redirect to={{pathname: '/Login',  state:{}}} />}
+    {register==="registered" && <Redirect to={{pathname: '/Login',  state:{}}} />}
     
     
     <div  className="container_register2">
-    {register===false && <h4>Sorry, a user account with this email already exists!</h4>}
+    {register==="sorry" && <h4>Sorry, a user account with this email already exists!</h4>}
           <form className="register_form" autoComplete="off"  onSubmit={event => event.preventDefault()}>
             
             <div className="group1">
