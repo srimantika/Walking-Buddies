@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
 import { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
-// import useApplicationData from "../hooks/useApplicationData.js";
 
 import "../styles/variables.scss";
 import "./UserList.scss";
@@ -10,24 +8,21 @@ import User from "./User";
 import "./User.scss";
 
 export default function UserList(props) {
-  const [chat, setChat] = useState(false)
+  const [chat, setChat] = useState(false);
 
-  // console.log("props from the userlist.jsx", props)
-  
-  const filterState = {    
-    age: '',
-    gender: '',
-    walk_reason: '',
-    walk_time: ''
-  }
+
+  const filterState = {
+    age: "",
+    gender: "",
+    walk_reason: "",
+    walk_time: "",
+  };
   const [users, setUsers] = useState([]);
   const [filterObject, setfilterObject] = useState(filterState);
 
   const clickHandler = () => {
     setChat(true);
   };
-
-
 
   useEffect(() => {
     if (!props.location.state.users) {
@@ -40,7 +35,7 @@ export default function UserList(props) {
   //   const usersCopy = [...props.location.state.users]
   //   const filteredUsers = usersCopy.filter((user) => {
   //     if(user.age) {
-  //       return user.age === age 
+  //       return user.age === age
   //     }
   //   })
   //   console.log("usersCopy:",usersCopy)
@@ -48,7 +43,6 @@ export default function UserList(props) {
   //   setUsers(filteredUsers);
   //   console.log("users:",users)
   // },[age])
-
 
   // useEffect(() => {
   //   if(age) {
@@ -77,49 +71,48 @@ export default function UserList(props) {
 
   // })
 
-  const setFilterItem = (event,type) => {
-    if(type === "Age") {
+  const setFilterItem = (event, type) => {
+    if (type === "Age") {
       const newfilterObj = {
         ...filterObject,
-        age:event.target.value
-      }
+        age: event.target.value,
+      };
       setfilterObject(newfilterObj);
     }
-    if(type === "Gender") {
+    if (type === "Gender") {
       const newfilterObj = {
         ...filterObject,
-        gender:event.target.value
-      }
+        gender: event.target.value,
+      };
       setfilterObject(newfilterObj);
     }
-    if(type === "Time") {
+    if (type === "Time") {
       const newfilterObj = {
         ...filterObject,
-        walk_time:event.target.value
-      }
+        walk_time: event.target.value,
+      };
       setfilterObject(newfilterObj);
     }
-    if(type === "Reason") {
+    if (type === "Reason") {
       const newfilterObj = {
         ...filterObject,
-        walk_reason:event.target.value
-      }
+        walk_reason: event.target.value,
+      };
       setfilterObject(newfilterObj);
     }
-  }
+  };
 
-var userslist = props.location.state.users;
-    ["age", "gender", "walk_time", "walk_reason"].forEach(function(filterBy) {
-      console.log("filterobject:",filterObject)
-      let filterValue = filterObject[filterBy];
-      console.log("filtervalue:",filterValue)
-      if (filterValue) {
-        userslist = userslist.filter(function(item) {
-          return item[filterBy] === filterValue;
-        });
-      }
-    });
-
+  var userslist = props.location.state.users;
+  ["age", "gender", "walk_time", "walk_reason"].forEach(function (filterBy) {
+    console.log("filterobject:", filterObject);
+    let filterValue = filterObject[filterBy];
+    console.log("filtervalue:", filterValue);
+    if (filterValue) {
+      userslist = userslist.filter(function (item) {
+        return item[filterBy] === filterValue;
+      });
+    }
+  });
 
   const renderedUsers = userslist.map((user) => {
     return (
@@ -138,9 +131,7 @@ var userslist = props.location.state.users;
         currentUserPassword={props.location.state.password}
       />
     );
-
   });
- 
 
   return (
     <Fragment>
@@ -153,13 +144,14 @@ var userslist = props.location.state.users;
           </div>
         </div>
         <div class="content-right">
-        <a>
-            <img className="chaticon" src='./images/Chaticon.png' 
-            onClick={clickHandler} />
-              {/* <span onClick={clickHandler}>Chat Room</span>
-            </img> */}
+          <a href="/Chat" target="_blank">
+            <img
+              className="chaticon"
+              src="./images/Chaticon.png"
+              onClick={clickHandler}
+            />
           </a>
-           <a href="/login">
+          <a href="/login">
             <button
               type="button"
               class="btn btn-dark"
@@ -173,7 +165,6 @@ var userslist = props.location.state.users;
       <img src="/images/userlist_topimg.jpg" className="top-image" />
       <div className="filter-section">
         <div className="filter-options">
-  
           <select
             className="fbtn btn-primary dd-toggle"
             onChange={(event) => setFilterItem(event, "Age")}
@@ -210,7 +201,6 @@ var userslist = props.location.state.users;
             className="fbtn btn-primary dd-toggle"
             onChange={(event) => {
               setFilterItem(event, "Reason");
-              // console.log(event.target.value);
             }}
           >
             <option value="">Reason of Walk</option>
@@ -227,7 +217,9 @@ var userslist = props.location.state.users;
           {/* <button className="fbtn" onClick={clickHandler} >Chat Room</button> */}
         </div>
       </div>
-      {chat === true && <Redirect to={{pathname: '/Chat',  state:{name:props.location.state.name, password:props.location.state.password}}} />}
+      {/* 
+      {chat === true && <Redirect to={{pathname: '/Chat', state:{name:props.location.state.name, password:props.location.state.password}}} />} */}
+
       {renderedUsers}
     </Fragment>
   );
