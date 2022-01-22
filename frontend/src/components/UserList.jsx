@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 // import useApplicationData from "../hooks/useApplicationData.js";
 
 import "../styles/variables.scss";
@@ -9,6 +10,10 @@ import User from "./User";
 import "./User.scss";
 
 export default function UserList(props) {
+  const [chat, setChat] = useState(false)
+
+  // console.log("props from the userlist.jsx", props)
+  
   const filterState = {    
     age: '',
     gender: '',
@@ -17,6 +22,10 @@ export default function UserList(props) {
   }
   const [users, setUsers] = useState([]);
   const [filterObject, setfilterObject] = useState(filterState);
+
+  const clickHandler = () => {
+    setChat(true);
+  };
 
 
 
@@ -125,6 +134,8 @@ var userslist = props.location.state.users;
         walk_reason={user.walk_reason}
         walk_time={user.walk_time}
         interests={user.interests}
+        currentUserName={props.location.state.name}
+        currentUserPassword={props.location.state.password}
       />
     );
 
@@ -142,22 +153,19 @@ var userslist = props.location.state.users;
           </div>
         </div>
         <div class="content-right">
-          <a href="/login">
-            <button
-              type="button"
-              class="btn btn-dark"
-              data-mdb-ripple-color="dark"
-            >
-              <span>Login</span>
-            </button>
+        <a>
+            <img className="chaticon" src='./images/Chaticon.png' 
+            onClick={clickHandler} />
+              {/* <span onClick={clickHandler}>Chat Room</span>
+            </img> */}
           </a>
-          <a href="/register">
+           <a href="/login">
             <button
               type="button"
               class="btn btn-dark"
               data-mdb-ripple-color="dark"
             >
-              <span>Register</span>
+              <span>Logout</span>
             </button>
           </a>
         </div>
@@ -216,10 +224,10 @@ var userslist = props.location.state.users;
             </option>
           </select>
 
-          <button className="fbtn">Filter</button>
+          {/* <button className="fbtn" onClick={clickHandler} >Chat Room</button> */}
         </div>
       </div>
-
+      {chat === true && <Redirect to={{pathname: '/Chat',  state:{name:props.location.state.name, password:props.location.state.password}}} />}
       {renderedUsers}
     </Fragment>
   );
