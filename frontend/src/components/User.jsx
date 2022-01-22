@@ -1,12 +1,18 @@
 import React, { Fragment } from "react";
+import { useState } from "react";
 import { Route, Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 import "./User.scss";
 
 export default function User(props) {
+const [chat, setChat] = useState(false)
+
+
+console.log("props from the user.jsx", props)
   const clickHandler = () => {
-    <Route exact path="/" render={() => <Redirect to="/Chat" />} />;
+    setChat(true);
   };
+  
   
   const genderImg = 
   (props.gender === 'Male' || props.gender === 'male') ? '/images/malesingle.png' : '/images/femalesingle.png';
@@ -88,99 +94,11 @@ export default function User(props) {
       </div>
     </article>
 
-      {/* <article>
-      <div className="left-section">
-        <div className="photo-info-container">
-          <div className='photo-container'>
-            <img
-              src="/images/samplepic.jpg"
-              className="photo"
-            />
-          </div>
-          <div className="right-of-photo">
-            <div className="name-age">
-              <div className="name-icon-container">
-                <div className="name-icon">
-                  <img
-                    src={singleMale}
-                    className="icon-name"
-                  />
-                   <span className="name"><strong>Bob Boblin  </strong></span>
-                </div>
-
-               
-
-                <div className="age-container"><strong>Age:</strong> 35 years</div>
-              </div>
-
-              
-            </div>
-
-            <div className='location'>
-              <p><strong>Location:</strong> Britannia Road, Mississauga </p>
-            </div>
-            <div className='likes'>
-          <p><strong>Reason for Walk:</strong> Leisure, Socialing</p>
-      
-        </div>
-
-        <div className='interests'>
-          <p><strong>Interests:</strong></p>
-          <img
-            src={readingicon}
-            className="activity-icons"
-          />
-                    <img
-            src={moviesicon}
-            className="activity-icons"
-          />
-                    <img
-            src={fitnessicon}
-            className="activity-icons"
-          />
-                    <img
-            src={gamingicon}
-            className="activity-icons"
-          />
-                    <img
-            src={musicicon}
-            className="activity-icons"
-          />
-
-
-        </div>
-          </div>
-        </div>
-
-        
-      </div>
-
-      <div className="right-section">
-        <div className="preferred-time">
-          <div>
-            <p>Preferred Time of Walk</p>
-          </div>
-          <div className="clock-image-container">
-            <img
-              src={clockSymb}
-              alt='clock-image'
-              className="time-of-day"
-            />
-          </div>
-
-          <div>
-            <p id='afternoon-tag'>Afternoon</p>
-          </div>
-        </div>
-        <div className="chat-button-section">
      
-          <button
-          onClick={clickHandler} 
-          className="chatbutton"><span>Message Me!</span>
-          </button>
-        </div>
-      </div>
-    </article> */}
+    {chat === true && <Redirect to={{pathname: '/Chat',  state:{name:props.currentUserName, password:props.currentUserPassword}}} />}
+
+    
     </Fragment>
+    
   );
 }
