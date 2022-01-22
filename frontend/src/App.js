@@ -34,9 +34,8 @@ const App = () => {
 
           <Route path="/UserList" render={(props) => <UserList {...props}/>}/>
 
-          <Route path="/Chat">
-            <Chat />
-          </Route>
+          <Route path="/Chat" render={(props) => <Chat {...props}/>} />
+    
         </Switch>
       </div>
     </Router>
