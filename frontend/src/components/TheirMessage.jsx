@@ -19,8 +19,8 @@ export default function TheirMessage({ lastMessage, message }){
           />
         )
         : (
-          <div className="message" style={{ float: 'left', backgroundColor: '#CABCDC', marginLeft: isFirstMessageByUser ? '4px' : '48px' }}>
-            {message.text}
+          <div className="message" style={{ float: 'left', backgroundColor: '#51cec3', marginLeft: isFirstMessageByUser ? '4px' : '48px' }}>
+            <i>{`${message.sender.username}:`}</i> {`${message.text}`}
           </div>
         )}
     </div>

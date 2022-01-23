@@ -14,7 +14,7 @@ export default function Register(){
   const interests= ["Games 🎮", "Music 🎵", "Movies 🎬", "Reading 📚","Sports ⚽",
                     "Food & Drinks ☕", "Arts 🎨","Politics 🤵",
                     "Travel 🌎", "Fashion 👗", "Fitness 🏋️‍♂️",
-                    "Technology 💻 ", "Automobiles 🚗","Gardening 🌳"];
+                    "Technology 💻 ", "Automobile 🚗","Gardening 🌳"];
 
                     
 
