@@ -11,16 +11,16 @@
   //margin-left: 2em;
   flex-wrap: wrap;
   background-color: #80cbc4;
-  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  background-image: url("../../public/images/nature2.jpg");
   
 }
 
 
 .container_register2 {
   padding-top: 50px;
-  margin-top: 120px;
+  margin-top: 90px;
   padding-bottom : 50px;
-  width: 80%;
+  width: 90%;
   
   background-color: #e0f2f1;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
@@ -77,8 +77,8 @@ label {
   }
 
   select {
-    font-size: 1em;
-    width:22em;
+    font-size: 0.9em;
+    width:24.5em;
   }
 
     
@@ -106,7 +106,7 @@ label {
   }
 
   select {
-    // width: 25em;
+    width: 20em;
     flex-grow: 1;
     flex-basis: 25%;
     margin-top: 0.5em;
