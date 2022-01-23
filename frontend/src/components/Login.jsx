@@ -53,10 +53,12 @@ export default function Login() {
           </a>
         </div>
       </nav>
+      <div className = "titlelogin">
       <div>
-        <h5>Welcome back ! Login to find your walking Buddy !</h5>
+        <h4>Welcome back ! </h4>
+          <h5> Login to find your walking Buddy !</h5>
       </div>
-
+     </div>
       {login.check === false && (
         <form
           className="login-form"
@@ -86,11 +88,12 @@ export default function Login() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-
+      
+     
           <button
             type="button"
             id="submitbutton"
-            className="btn-dark"
+            className="btn-dark-login"
             onClick={verify}
           >
             Sign in
@@ -99,6 +102,7 @@ export default function Login() {
             <span>© 2022 by Walking Buddies. All rights reserved.</span>
           </footer>
         </form>
+        
       )}
 
       {login.check === true &&
