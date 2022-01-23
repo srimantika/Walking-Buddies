@@ -1,3 +1,4 @@
+@import '../styles/variables.scss';
 /* CHAT STYLES */
 * {
   font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -11,11 +12,11 @@
 }
 
 .ce-chats-container {
-  background-color: rgb(240, 240, 240) !important;
+   background-color: rgb(240, 240, 240) !important;
 }
 
 .ce-active-chat-card {
-  background-color: #cabcdc !important;
+  background-color: $green !important;
   border: 4px solid #cabcdc !important;
   border-radius: 0px !important;
 }
@@ -35,7 +36,7 @@
 
 .ce-primary-button {
   border-radius: 6px !important;
-  background-color: #7554a0 !important;
+  background-color: $purple !important;
   position: relative;
   bottom: 1px;
 }
@@ -84,13 +85,13 @@
 }
 
 .chat-title {
-  color: #7554a0;
+  color: $purple;
   font-weight: 800;
   font-size: 24px;
 }
 
 .chat-subtitle {
-  color: #7554a0;
+  color: $primaryBlack;
   font-weight: 600;
   font-size: 12px;
   padding-top: 4px;
