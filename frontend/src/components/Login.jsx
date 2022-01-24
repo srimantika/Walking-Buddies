@@ -53,12 +53,14 @@ export default function Login() {
           </a>
         </div>
       </nav>
+      <div className = "LoginPage">
       <div className = "titlelogin">
       <div>
         <h4>Welcome back ! </h4>
           <h5> Login to find your walking Buddy !</h5>
       </div>
      </div>
+     <div>
       {login.check === false && (
         <form
           className="login-form"
@@ -98,9 +100,7 @@ export default function Login() {
           >
             Sign in
           </button>
-          <footer>
-            <span>© 2022 by Walking Buddies. All rights reserved.</span>
-          </footer>
+
         </form>
         
       )}
@@ -125,6 +125,12 @@ export default function Login() {
           }}
         />
       )}
+
+    
+    </div>
+    </div>
+    <div><footer><span>© 2022 by Walking Buddies. All rights reserved.</span></footer> </div>
     </div>
   );
+  
 }

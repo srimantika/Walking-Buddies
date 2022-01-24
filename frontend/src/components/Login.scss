@@ -3,14 +3,22 @@
   justify-content: center;
   flex-direction: column;
   padding-top: 5px;
+  
+  
+}
+
+.LoginPage {
+  padding-top: 250px;
+  height: 42rem;
   background-image: url("https://images.pexels.com/photos/6324243/pexels-photo-6324243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-  height: 50rem;
 }
 
 .HomeIcon {
-  width: 5.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   align-self: center;
   margin-right: 10px;
+  margin-top : 5px;
   color: #FFFFFF;
 
 }
@@ -32,11 +40,13 @@
 
 }
 
-.login footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+// .Loginfooter {
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   z-index: 100;
+//   margin-top: 100
+// }
 
 .login-form {
   padding-top: 10px;
@@ -79,8 +89,9 @@
 }
 
 .Tryagain {
-  color:red;
+  color : red;
   display : flex;
   justify-content: space-around;
   flex-direction: column;
 }
+
