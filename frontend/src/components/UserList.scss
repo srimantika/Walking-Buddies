@@ -60,13 +60,6 @@
   align-self: flex-start;
   align-content: center;
   border: 2px solid #196dce;
-
-  
-  // background-color:#c99b69;
-
-  // background-image:url("https://www.transparenttextures.com/patterns/black-felt.png");
-  // ;
-
   background: -webkit-linear-gradient(#6558f5,#27a39b);
   color: white;
   height:auto;
@@ -106,8 +99,6 @@
   font-size: larger;
   font-weight: bolder;
   margin-top: 13px;
-  // color: #51cec3;
-  // background: -webkit-linear-gradient(#6558f5,#27a39b);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -128,4 +119,16 @@ button {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+}
+
+.logged-user {
+  // width: 100%;
+  font-size: larger;
+  font-weight: bolder;
+  // margin-top: 10rem;
+  color: #51cec3;
+  background: -webkit-linear-gradient(#6558f5,#27a39b);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  // text-align: center;
 }

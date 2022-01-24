@@ -9,6 +9,11 @@ import "./User.scss";
 
 export default function UserList(props) {
   const [chat, setChat] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState("");
+
+  useEffect(() => {
+    setLoggedInUser(localStorage.getItem("name"));
+  });
 
   const filterState = {
     age: "",
@@ -135,16 +140,6 @@ export default function UserList(props) {
     );
   });
 
-  // if(renderedUsers.length === 0) {
-  //   return <></>
-  // } else {
-  //   return <>
-  //   <p className="message-of-area-code">
-  //       Sorry, we couldn't find any walking buddies in your area!
-  //     </p>
-  //   </>
-  // }
-
   return (
     <Fragment>
       <nav>
@@ -156,6 +151,7 @@ export default function UserList(props) {
           </div>
         </div>
         <div class="content-right">
+          <span className="message-of-area-code">Hi {loggedInUser}!</span>
           <a href="/Chat" target="_blank">
             <img
               className="chaticon"
@@ -226,18 +222,13 @@ export default function UserList(props) {
             </option>
           </select>
 
-          {/* <button className="fbtn" onClick={clickHandler} >Chat Room</button> */}
         </div>
       </div>
       <p className="message-of-area-code">
         Your walking buddies in the neighbourhood of {areaCode}, {userCity}
       </p>
-      {/* 
-      {chat === true && <Redirect to={{pathname: '/Chat', state:{name:props.location.state.name, password:props.location.state.password}}} />} */}
-
-{renderedUsers}
-     
-      
+    
+      {renderedUsers}
     </Fragment>
   );
 }
