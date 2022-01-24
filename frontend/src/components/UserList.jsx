@@ -106,7 +106,7 @@ export default function UserList(props) {
     }
   };
 
-  var userslist = props.location.state.users;
+  const userslist = props.location.state.users;
   ["age", "gender", "walk_time", "walk_reason"].forEach(function (filterBy) {
     console.log("filterobject:", filterObject);
     let filterValue = filterObject[filterBy];
@@ -117,9 +117,28 @@ export default function UserList(props) {
       });
     }
   });
+  
+  let areaCode;
+  let firstWord;
+  let secondWord;
+  if(userslist[0]) {
+    areaCode = userslist[0].postal_code.slice(0, 3);
+    firstWord = "Your";
+    secondWord = "the";
+  } else {
+    areaCode = ""
+    firstWord = "Sorry, We couldn't find any"
+    secondWord = "your"
+  }
 
-  const areaCode = userslist[0].postal_code.slice(0, 3);
-  const userCity = userslist[0].city;
+  let userCity;
+  if(userslist[0]) {
+    userCity = userslist[0].city;
+  } else {
+    userCity = ""
+  }
+  
+  
   console.log("areacode", areaCode);
   const renderedUsers = userslist.map((user) => {
     return (
@@ -225,7 +244,7 @@ export default function UserList(props) {
         </div>
       </div>
       <p className="message-of-area-code">
-        Your walking buddies in the neighbourhood of {areaCode}, {userCity}
+        {firstWord} walking buddies in {secondWord} neighbourhood {areaCode}, {userCity}
       </p>
     
       {renderedUsers}
