@@ -10,7 +10,6 @@ import "./User.scss";
 export default function UserList(props) {
   const [chat, setChat] = useState(false);
 
-
   const filterState = {
     age: "",
     gender: "",
@@ -114,6 +113,9 @@ export default function UserList(props) {
     }
   });
 
+  const areaCode = userslist[0].postal_code.slice(0, 3);
+  const userCity = userslist[0].city;
+  console.log("areacode", areaCode);
   const renderedUsers = userslist.map((user) => {
     return (
       <User
@@ -132,6 +134,16 @@ export default function UserList(props) {
       />
     );
   });
+
+  // if(renderedUsers.length === 0) {
+  //   return <></>
+  // } else {
+  //   return <>
+  //   <p className="message-of-area-code">
+  //       Sorry, we couldn't find any walking buddies in your area!
+  //     </p>
+  //   </>
+  // }
 
   return (
     <Fragment>
@@ -217,10 +229,15 @@ export default function UserList(props) {
           {/* <button className="fbtn" onClick={clickHandler} >Chat Room</button> */}
         </div>
       </div>
+      <p className="message-of-area-code">
+        Your walking buddies in the neighbourhood of {areaCode}, {userCity}
+      </p>
       {/* 
       {chat === true && <Redirect to={{pathname: '/Chat', state:{name:props.location.state.name, password:props.location.state.password}}} />} */}
 
-      {renderedUsers}
+{renderedUsers}
+     
+      
     </Fragment>
   );
 }
