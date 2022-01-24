@@ -1,6 +1,6 @@
 .top-image {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   border-radius: 10px;
   margin-top: 90px;
 }
@@ -16,7 +16,7 @@
 
 .fbtn {
   border-radius: 10px;
-  background-color: #514947;
+  // background-color: #514947;
   // background-image: linear-gradient(#bb7f0e,#49515d);
   border: none;
   color: #1bae9f;
@@ -59,11 +59,16 @@
   flex-wrap: wrap;
   align-self: flex-start;
   align-content: center;
-  // border: 2px solid rgb(151, 148, 148);
-  background-color:#c99b69;
+  border: 2px solid #196dce;
 
-  background-image:url("https://www.transparenttextures.com/patterns/black-felt.png");
-  ;
+  
+  // background-color:#c99b69;
+
+  // background-image:url("https://www.transparenttextures.com/patterns/black-felt.png");
+  // ;
+
+  background: -webkit-linear-gradient(#6558f5,#27a39b);
+  color: white;
   height:auto;
   width: 100%;
   margin: 0px auto;
@@ -96,9 +101,31 @@
   background-color: white;
   color:#6558f5;
   font-size: larger;
+
+  border: 2px solid white;
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 13px;
+  // color: #51cec3;
+  // background: -webkit-linear-gradient(#6558f5,#27a39b);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
 button {
   padding: 12px;
   
+}
+
+.message-of-area-code {
+  width: 100%;
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 13px;
+  color: #51cec3;
+  background: -webkit-linear-gradient(#6558f5,#27a39b);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
