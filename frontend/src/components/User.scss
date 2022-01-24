@@ -1,22 +1,23 @@
 $border-spec: 2px dashed #116e8a;
-$bg-color: #bb8565;
-$bg-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
-
+$bg-color: white;
+$bg-image: url("https://www.transparenttextures.com/patterns/rough-cloth-light.png");
 article {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-  width: 100%;
+  width: 99%;
   // border: $border-spec;
   border-radius: 10px;
   align-self: center;
   flex-grow: 1;
   height: auto;
 
-  margin: 10px auto;
+  margin: 12px auto;
   box-sizing: border-box;
+  border:3px solid #3394ac;
+  
   background-color: $bg-color;
   background-image: $bg-image;
   div {
@@ -45,13 +46,16 @@ article {
   border: $border-spec;
   border-radius: 5px;
   height: 3rem;
+  width: 100%;
 }
 
 .photo {
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 3px dashed #3394ac;
+  border-radius: 10px;
   object-fit: contain;
   overflow: hidden;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 
@@ -122,11 +126,12 @@ img:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-
+  align-items: center; 
 }
 
 .likes {
+  display: flex;
+  align-items: center;
   border: $border-spec;
   border-radius: 5px;
   width: 100%;
@@ -139,13 +144,13 @@ img:hover {
 }
 
 .interests {
+  width: 100%;
   display: flex;
+  align-items: center;
   border: $border-spec;
   border-radius: 5px;
-  width: 100%;
   text-align: left;
-  align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   min-height: 3rem;
   padding-left: 0.5rem;
   font-size: larger;
@@ -153,6 +158,8 @@ img:hover {
 
 
 .location {
+  display: flex;
+  align-items: center;
   border: $border-spec;
   border-radius: 5px;
   // margin: 5px;
@@ -198,7 +205,7 @@ img:hover {
   border-radius: 10px;
   background-color: #6558f5;
   background-image: linear-gradient(#6558f5, #27a39b);
-  border: none;
+  border: 2px solid white;
   color: #ffffff;
   text-align: center;
   font-size: 18px;
@@ -207,6 +214,22 @@ img:hover {
   transition: all 0.5s;
   cursor: pointer;
 }
+
+a.chatbutton {
+  border-radius: 10px;
+  background-color: #6558f5;
+  background-image: linear-gradient(#6558f5, #27a39b);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  // width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 
 .chatbutton span {
   cursor: pointer;
@@ -236,4 +259,12 @@ img:hover {
 .age-container {
   white-space: nowrap;
   font-size: larger;
+}
+
+p.user-p {
+  margin: 0px;
+}
+
+p.user-p-pref {
+  margin: 1rem;
 }
