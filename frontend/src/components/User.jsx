@@ -74,7 +74,7 @@ export default function User(props) {
           <div className="chat-button-section">
 
           <button type="button" className="chatbutton">
-          <a className="chatbutton" className="chatbutton" href="/Chat" target="_blank" >Let hang out!</a>
+          <a className="chatbutton" className="chatbutton" href="/Chat" target="_blank" >Let's hang out!</a>
           </button>
           </div>
         </div>
