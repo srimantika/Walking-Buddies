@@ -1,10 +1,7 @@
 import React, { Fragment } from "react";
-import { useState } from "react";
-import { Route, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+
 
 import "./User.scss";
-
-// import {createDirectChat, renderChatForm} from "./DMhelpers"
 
 export default function User(props) {
 
@@ -38,18 +35,18 @@ export default function User(props) {
               </div>
 
               <div className="location">
-                <p>
+                <p className="user-p">
                   <strong>Location:</strong> {props.street_name}, {props.city}{" "}
                 </p>
               </div>
               <div className="likes">
-                <p>
+                <p className="user-p">
                   <strong>Reason for Walk:</strong> {props.walk_reason}
                 </p>
               </div>
 
               <div className="interests">
-                <p>
+                <p className="user-p">
                   <strong>Interests:</strong> {props.interests}
                 </p>
               </div>
@@ -60,7 +57,7 @@ export default function User(props) {
         <div className="right-section">
           <div className="preferred-time-user">
             <div>
-              <p>Preferred Time of Walk</p>
+              <p className="user-p-pref" >Preferred Time of Walk</p>
             </div>
             <div className="clock-image-container">
               <img
@@ -71,13 +68,13 @@ export default function User(props) {
             </div>
 
             <div>
-              <p id="afternoon-tag">{props.walk_time}</p>
+              <p className="user-p-pref" id="afternoon-tag">{props.walk_time}</p>
             </div>
           </div>
           <div className="chat-button-section">
 
           <button type="button" className="chatbutton">
-          <a href="/Chat" target="_blank">Chat!</a>
+          <a className="chatbutton" className="chatbutton" href="/Chat" target="_blank" >Let hang out!</a>
           </button>
           </div>
         </div>
