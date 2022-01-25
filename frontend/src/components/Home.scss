@@ -10,12 +10,19 @@
   margin-top: 2rem;
   letter-spacing: 1.5px;
   font-size: x-large;
+  font-weight: bolder;
   display: flex;
   flex-direction: column;
 }
 
 .content-left {
   display: flex;
+}
+
+.content-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title span {
@@ -58,8 +65,8 @@ nav .btn-dark {
   width: 180px;
   transition: all 0.5s;
   cursor: pointer;
-  margin-top: 2rem;
-  margin-right: 2.5rem;
+  // margin-top: 0.5rem;
+  margin-right: 1.5rem;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 
 }

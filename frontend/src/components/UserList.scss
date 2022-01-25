@@ -131,4 +131,91 @@ button {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   // text-align: center;
+  margin-right: 1.5rem;
 }
+
+.btn-ddark {
+  border-radius: 10px;
+  background-color: #6558f5;
+  background-image: linear-gradient(#6558f5,#27a39b);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  // margin-top: 0.5rem;
+  margin-right: 1.5rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+
+}
+
+.btn-ddark span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-ddark span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-ddark:hover span {
+  padding-right: 25px;
+}
+
+.btn-dddark:hover span:after {
+  opacity: 1;
+  right: 0; }
+
+
+  .btn-dddark {
+    border-radius: 10px;
+    background-color: #6558f5;
+    background-image: linear-gradient(#f5d058,#a35427);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 180px;
+    transition: all 0.5s;
+    cursor: pointer;
+    // margin-top: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  
+  }
+  
+  .btn-dddark span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .btn-ddark span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .btn-dddark:hover span {
+    padding-right: 25px;
+  }
+  
+  .btn-dddark:hover span:after {
+    opacity: 1;
+    right: 0; }

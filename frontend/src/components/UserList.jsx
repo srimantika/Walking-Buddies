@@ -117,28 +117,27 @@ export default function UserList(props) {
       });
     }
   });
-  
+
   let areaCode;
   let firstWord;
   let secondWord;
-  if(userslist[0]) {
+  if (userslist[0]) {
     areaCode = userslist[0].postal_code.slice(0, 3);
     firstWord = "Your";
     secondWord = "the";
   } else {
-    areaCode = ""
-    firstWord = "Sorry, We couldn't find any"
-    secondWord = "your"
+    areaCode = "";
+    firstWord = "Sorry, We couldn't find any";
+    secondWord = "your";
   }
 
   let userCity;
-  if(userslist[0]) {
+  if (userslist[0]) {
     userCity = userslist[0].city;
   } else {
-    userCity = ""
+    userCity = "";
   }
-  
-  
+
   console.log("areacode", areaCode);
   const renderedUsers = userslist.map((user) => {
     return (
@@ -171,17 +170,28 @@ export default function UserList(props) {
         </div>
         <div class="content-right">
           <span className="message-of-area-code">Hi {loggedInUser}!</span>
-          <a href="/Chat" target="_blank">
+          {/* <a href="/Chat" target="_blank">
             <img
               className="chaticon"
               src="./images/Chaticon.png"
               onClick={clickHandler}
             />
+          </a> */}
+
+          <a href="/Chat" target="_blank">
+          <button
+              type="button"
+              class="btn btn-dddark"
+              data-mdb-ripple-color="dark"
+              onClick={clickHandler}
+            >
+             <span>Chat Room</span>
+            </button>
           </a>
           <a href="/login">
             <button
               type="button"
-              class="btn btn-dark"
+              class="btn btn-ddark logout"
               data-mdb-ripple-color="dark"
             >
               <span>Logout</span>
@@ -240,13 +250,13 @@ export default function UserList(props) {
               Taking my baby out on a stroll
             </option>
           </select>
-
         </div>
       </div>
       <p className="message-of-area-code">
-        {firstWord} walking buddies in {secondWord} neighbourhood {areaCode}, {userCity}
+        {firstWord} walking buddies in {secondWord} neighbourhood {areaCode},{" "}
+        {userCity}
       </p>
-    
+
       {renderedUsers}
     </Fragment>
   );
