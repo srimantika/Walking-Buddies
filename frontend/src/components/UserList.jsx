@@ -106,7 +106,7 @@ export default function UserList(props) {
     }
   };
 
-  const userslist = props.location.state.users;
+  let userslist = props.location.state.users;
   ["age", "gender", "walk_time", "walk_reason"].forEach(function (filterBy) {
     console.log("filterobject:", filterObject);
     let filterValue = filterObject[filterBy];
@@ -138,7 +138,7 @@ export default function UserList(props) {
     userCity = "";
   }
 
-  console.log("areacode", areaCode);
+  // console.log("areacode", areaCode);
   const renderedUsers = userslist.map((user) => {
     return (
       <User
