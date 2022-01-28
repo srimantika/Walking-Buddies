@@ -4,6 +4,11 @@
 
 So once a user registers on Walking Buddy they can go and check all the other users residing in their neighbourhood. The App also lets them filter further based on their preferences. For example Mario wants to check who all walks in the morning which is his preferred time of walk. He can easily do so and then connect with the individual through the chat feature and take it forward from there ! 
 
+## Product Demo
+
+![Home Page and Registration](./docs/HomePage.gif)
+
+![Filter page and Chatroom](./docs/FilterPage.gif)
 
 ## Setup
 
